@@ -15,6 +15,7 @@
     "express-http-proxy": "^1.6.2"
   },
   "devDependencies": {
+    "@types/express-http-proxy": "^1.6.3",
     "nodemon": "^2.0.12"
   }
 }
