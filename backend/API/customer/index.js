@@ -9,9 +9,12 @@ app.use(cors());
 
 
 
-const PORT = process.env.PORT
+const PORT = 8082
 
 app.get('/',(req,res)=>{
     res.send("Customers microservices")
 })
 
+app.listen(PORT, () => {
+    console.log(`Customers microservices running at port ${PORT}`)
+})
