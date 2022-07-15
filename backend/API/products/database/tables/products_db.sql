@@ -6,11 +6,15 @@ CREATE DATABASE Products
      id int NOT NULL PRIMARY KEY,
      name VARCHAR (50) NOT NULL,
      price VARCHAR(50) NOT NULL,
-     image VARCHAR(50) NOT NULL,
-     description VARCHAR(50) NOT NULL,
+     image VARCHAR(255) NOT NULL,
+     description VARCHAR(255) NOT NULL,
      category VARCHAR(50) NOT NULL,
  )
- CREATE TABLE category(
+
+
+CREATE TABLE categories(
 id int NOT NULL PRIMARY KEY,
 name VARCHAR(50) NOT NULL,
+description VARCHAR(255) NOT NULL,
+
  )
