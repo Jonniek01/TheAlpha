@@ -1,18 +1,28 @@
 /* eslint-disable new-cap */
 const express = require('express');
-// const { } = require("../controllers/categories.js") ;
+
+const {getCategories,
+  postCategory,
+  patchCategory,
+  deleteCategory,
+} = require('../controllers/categories.js');
 const categories = express.Router();
 
 /* GET ALL CATEGORIES*/
-categories.get('/categories',
+categories.get('/all',
     getCategories);
 
 /* CREATE CATEGORY*/
-categories.post('/category',
-    postCategories);
+categories.post('/',
+    postCategory);
+/*
+name VARCHAR(50) NOT NULL,
+description VARCHAR(255) NOT NULL,
+*/
+
 
 /* UPDATE CATEGORY*/
-categories.patch('/category/:id',
+categories.patch('/:id',
     patchCategory);
 /*
 name VARCHAR(50) NOT NULL,
@@ -21,7 +31,7 @@ description VARCHAR(255) NOT NULL,
 
 /* DELETE CATEGORY*/
 
-categories.patch('/category/del/:id',
+categories.patch('/del/:id',
     deleteCategory);
 /*
 deleted: BIT
