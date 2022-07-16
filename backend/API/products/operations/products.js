@@ -141,8 +141,26 @@ const readProuctsByCategoryPaginated= async (params)=> {
   return (data);
 };
 
-
+const readProuctById = async (params) =>{
+  const {id} = params;
+  const query=`EXEC productbyid ${id}`;
+  const pool = await poolPromise();
+  const data = pool.query(query).then((result)=>{
+    return {
+      success: true,
+      data: result.recordset,
+    };
+  })
+      .catch((err)=>{
+        return {
+          success: false,
+          error: err.message,
+        };
+      });
+  return (data);
+};
 module.exports={readAllProucts,
   readProductsPaginated,
   readAllProuctsByCategory,
-  readProuctsByCategoryPaginated};
+  readProuctsByCategoryPaginated,
+  readProuctById};

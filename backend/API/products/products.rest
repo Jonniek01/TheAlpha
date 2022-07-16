@@ -21,7 +21,7 @@ GET http://localhost:8081/category/pg/outdoor/1/price/asc/1
 ###
 ##/:id
 ## 5. Get product by id
-GET http://localhost:8081/p1
+GET http://localhost:8081/2
 
 ###
 ##/:id

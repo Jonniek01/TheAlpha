@@ -244,3 +244,16 @@ FETCH NEXT @RowsOfPage ROWS ONLY
 EXEC  pagcatproductsnamedescending 'outdoor', 1, 2
 
 
+
+/*Getting product by id*/
+CREATE OR ALTER PROCEDURE 
+productbyid
+@id VARCHAR(50)
+ AS
+ SELECT id, name, price, image, description, category 
+     FROM products
+     WHERE id=@id
+     AND deleted=0
+ ORDER BY price ASC;
+
+EXEC productbyid 2

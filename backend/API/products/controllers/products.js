@@ -1,7 +1,8 @@
 const {readAllProucts,
   readProductsPaginated,
   readAllProuctsByCategory,
-  readProuctsByCategoryPaginated} = require('../operations/products');
+  readProuctsByCategoryPaginated,
+  readProuctById} = require('../operations/products');
 
 module.exports = {
   getProducts: async (req, res) =>{
@@ -90,9 +91,23 @@ module.exports = {
     });
   },
   getProductById: async (req, res) =>{
-    const {id} = req.params;
-    res.send(`getting product by id ${id} `);
     // verify params and body schema and continue to operations
+    const response=await readProuctById(req.params);
+    if (response.success) {
+      res.status(200).send({
+        success: true,
+        status: 200,
+        message: 'success',
+        products: response.data,
+      });
+      return;
+    }
+    res.status(502).send({
+      success: false,
+      status: 502,
+      message: 'Database operation error',
+      error: response.error,
+    });
   },
   postProduct: async (req, res) =>{
     const {name, price, image, description, category} = req.body;
