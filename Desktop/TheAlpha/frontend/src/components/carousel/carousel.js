@@ -1,24 +1,30 @@
-import React from 'react'
+import React from "react";
+import { useState, useEffect } from "react";
+import './carusel.css'
+import CarouselItem from './carouselitem'
 
-const Carousel=()=> {
-    const slides = [
-        "https://picsum.photos/id/1032/900/400",
-        "https://picsum.photos/id/1033/900/400",
-        "https://picsum.photos/id/1037/900/400",
-        "https://picsum.photos/id/1035/900/400",
-        "https://picsum.photos/id/1036/900/400",
-      ]
+export default function Carousel({ slides }) {
+
+    const [currentSlide, setCurrentSlide] = useState(0)
+
+    useEffect(() => {
+        const slideInterval = setInterval(() => {
+
+            setCurrentSlide(currentSlide => currentSlide < slides.length - 1 ? currentSlide + 1 : 0)
+
+        }, 3000)
+
+        return () => clearInterval(slideInterval)
+    }, [])
+
 
   return (
-    <div className='carousel'>
-        <div className="carousel-inner">        
-          <div className="carousel-item">
-            <img />
-          </div>        
-        </div>
+    <div className="carousel">
+      <div className="carousel-inner" style={{ transform: `translateX(${-currentSlide * 100}%)`}}>
+        {slides.map((slide, index) => (
+          <CarouselItem slide={slide} key={index} />
+        ))}
       </div>
-
-  )
+    </div>
+  );
 }
-
-export default Carousel
