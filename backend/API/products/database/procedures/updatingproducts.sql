@@ -4,7 +4,7 @@ SELECT * FROM products
 /*UPDATING PRODUCTS*/
 CREATE OR ALTER PROCEDURE 
 updateproduct
-@id VARCHAR(50),
+@id INT,
 @name VARCHAR(50),
 @price FLOAT,
 @image VARCHAR(255),
@@ -20,4 +20,5 @@ description=@description,
 category=@category
 WHERE
 id=@id;
-EXEC productbyid 2
+EXEC updateproduct 2 ,'Brazer', 2520.30, 
+'http://imagex/url.com', 'cute brazer','official'
