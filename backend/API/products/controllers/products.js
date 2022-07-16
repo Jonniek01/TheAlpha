@@ -1,6 +1,7 @@
 const {readAllProucts,
   readProductsPaginated,
-  readAllProuctsByCategory} = require('../operations/products');
+  readAllProuctsByCategory,
+  readProuctsByCategoryPaginated} = require('../operations/products');
 
 module.exports = {
   getProducts: async (req, res) =>{
@@ -70,10 +71,23 @@ module.exports = {
     });
   },
   getProductsByCategoryPaginated: async (req, res) =>{
-    const {page, category, orderby, orderform} = req.params;
-    res.send(`getting products paginated category: ${category},
-    page: ${page}, order by: ${orderby}, order form: ${orderform} `);
     // verify params and body schema and continue to operations
+    const response=await readProuctsByCategoryPaginated(req.params);
+    if (response.success) {
+      res.status(200).send({
+        success: true,
+        status: 200,
+        message: 'success',
+        products: response.data,
+      });
+      return;
+    }
+    res.status(502).send({
+      success: false,
+      status: 502,
+      message: 'Database operation error',
+      error: response.error,
+    });
   },
   getProductById: async (req, res) =>{
     const {id} = req.params;

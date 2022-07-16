@@ -108,7 +108,41 @@ const readAllProuctsByCategory= async (params)=> {
   return (data);
 };
 
+const readProuctsByCategoryPaginated= async (params)=> {
+  let query='';
+  const {category, page, orderby, orderform, limit}= params;
+  if (orderby==='price'&&orderform==='asc') {
+    query=`EXEC pagcatproductspriceascending ${category}, ${page}, ${limit}`;
+  } else if (orderby==='price'&&orderform==='desc') {
+    query=`EXEC pagcatproductspricedescending ${category}, ${page}, ${limit}`;
+  } else if (orderby==='name'&&orderform==='asc') {
+    query=`EXEC pagcatproductsnameascending ${category}, ${page}, ${limit}`;
+  } else if (orderby==='name'&&orderform==='desc') {
+    query=`EXEC pagcatproductsnamedescending ${category}, ${page}, ${limit}`;
+  } else {
+    return {
+      success: false,
+      error: 'Error on url parameters',
+    };
+  }
+  const pool = await poolPromise();
+  const data = pool.query(query).then((result)=>{
+    return {
+      success: true,
+      data: result.recordset,
+    };
+  })
+      .catch((err)=>{
+        return {
+          success: false,
+          error: err.message,
+        };
+      });
+  return (data);
+};
+
 
 module.exports={readAllProucts,
   readProductsPaginated,
-  readAllProuctsByCategory};
+  readAllProuctsByCategory,
+  readProuctsByCategoryPaginated};

@@ -15,6 +15,7 @@ productspriceascending
  AS
  SELECT id, name, price, image, description, category 
      FROM products
+     WHERE deleted=0
  ORDER BY price ASC;
 
 EXEC productspriceascending
@@ -27,6 +28,7 @@ productspricedescending
  AS
  SELECT id, name, price, image, description, category 
      FROM products
+         WHERE deleted=0
  ORDER BY price DESC;
 
 EXEC productspricedescending
@@ -38,6 +40,7 @@ productsnameascending
  AS
  SELECT id, name, price, image, description, category 
      FROM products
+      WHERE deleted=0
  ORDER BY name ASC;
 
 EXEC productsnameascending
@@ -49,6 +52,7 @@ productsnamedescending
  AS
  SELECT id, name, price, image, description, category 
      FROM products
+      WHERE deleted=0
  ORDER BY name DESC;
 
 EXEC productsnamedescending
@@ -64,6 +68,7 @@ pgproductspriceascending
  AS
  SELECT id, name, price, image, description, category 
      FROM products
+      WHERE deleted=0
  ORDER BY price ASC
  OFFSET (@PageNumber-1)*@RowsOfPage ROWS
 FETCH NEXT @RowsOfPage ROWS ONLY
@@ -78,6 +83,7 @@ pgproductspricedescending
  AS
  SELECT id, name, price, image, description, category 
      FROM products
+      WHERE deleted=0
  ORDER BY price DESC
  OFFSET (@PageNumber-1)*@RowsOfPage ROWS
 FETCH NEXT @RowsOfPage ROWS ONLY
@@ -92,6 +98,7 @@ pgproductsnameascending
  AS
  SELECT id, name, price, image, description, category 
      FROM products
+      WHERE deleted=0
  ORDER BY name ASC
  OFFSET (@PageNumber-1)*@RowsOfPage ROWS
 FETCH NEXT @RowsOfPage ROWS ONLY
@@ -106,8 +113,134 @@ CREATE OR ALTER PROCEDURE
  AS
  SELECT id, name, price, image, description, category 
      FROM products
+      WHERE deleted=0
  ORDER BY name DESC
  OFFSET (@PageNumber-1)*@RowsOfPage ROWS
 FETCH NEXT @RowsOfPage ROWS ONLY
 
 EXEC  pgproductsnamedescending 1, 10
+
+
+/* products by category all*/
+-- 1. catproductspriceascending
+CREATE OR ALTER PROCEDURE
+catproductspriceascending
+@cat VARCHAR(50)
+ AS
+ SELECT id, name, price, image, description, category 
+     FROM products
+WHERE category=@cat
+AND deleted=0
+ ORDER BY price ASC;
+
+EXEC  catproductspriceascending 'outdoor'
+
+-- 2. catproductspricedescending
+CREATE OR ALTER PROCEDURE
+catproductspricedescending
+@cat VARCHAR(50)
+ AS
+ SELECT id, name, price, image, description, category 
+     FROM products
+WHERE category=@cat AND deleted=0
+ ORDER BY price DESC;
+
+EXEC  catproductspricedescending 'outdoor'
+
+-- 3. catproductsnameascending
+CREATE OR ALTER PROCEDURE
+catproductsnameascending
+@cat VARCHAR(50)
+ AS
+ SELECT id, name, price, image, description, category 
+     FROM products
+WHERE category=@cat AND deleted=0
+ ORDER BY name ASC;
+
+EXEC  catproductsnameascending 'outdoor'
+
+-- 4. catproductsnamedescending
+CREATE OR ALTER PROCEDURE
+catproductsnamedescending
+@cat VARCHAR(50)
+ AS
+ SELECT id, name, price, image, description, category 
+     FROM products
+WHERE category=@cat AND deleted=0
+ ORDER BY name DESC;
+
+EXEC  catproductsnamedescending 'outdoor'
+
+
+/* products by category paginated*/
+-- 1.pagcatproductspriceascending
+CREATE OR ALTER PROCEDURE 
+pagcatproductspriceascending
+@cat VARCHAR(50),
+@PageNumber INT,
+@RowsOfPage INT
+ AS
+ SELECT id, name, price, image, description, category 
+     FROM products
+    WHERE category=@cat
+     AND deleted=0
+ ORDER BY price ASC
+ OFFSET (@PageNumber-1)*@RowsOfPage ROWS
+FETCH NEXT @RowsOfPage ROWS ONLY
+
+EXEC  pagcatproductspriceascending 'outdoor', 1, 1
+
+-- 2.pagcatproductspricedescending
+CREATE OR ALTER PROCEDURE 
+pagcatproductspricedescending
+@cat VARCHAR(50),
+@PageNumber INT,
+@RowsOfPage INT
+ AS
+ SELECT id, name, price, image, description, category 
+     FROM products
+    WHERE category=@cat
+     AND deleted=0
+ ORDER BY price DESC
+ OFFSET (@PageNumber-1)*@RowsOfPage ROWS
+FETCH NEXT @RowsOfPage ROWS ONLY
+
+EXEC  pagcatproductspricedescending 'outdoor', 1, 2
+
+
+-- 3.pagcatproductsnameascending
+CREATE OR ALTER PROCEDURE 
+pagcatproductsnameascending
+@cat VARCHAR(50),
+@PageNumber INT,
+@RowsOfPage INT
+ AS
+ SELECT id, name, price, image, description, category 
+     FROM products
+    WHERE category=@cat
+     AND deleted=0
+ ORDER BY name ASC
+ OFFSET (@PageNumber-1)*@RowsOfPage ROWS
+FETCH NEXT @RowsOfPage ROWS ONLY
+
+EXEC  pagcatproductsnameascending 'outdoor', 1, 2
+
+
+-- 4.pagcatproductsnamedescending
+CREATE OR ALTER PROCEDURE 
+pagcatproductsnamedescending
+@cat VARCHAR(50),
+@PageNumber INT,
+@RowsOfPage INT
+ AS
+ SELECT id, name, price, image, description, category 
+     FROM products
+    WHERE category=@cat
+     AND deleted=0
+ ORDER BY name DESC
+ OFFSET (@PageNumber-1)*@RowsOfPage ROWS
+FETCH NEXT @RowsOfPage ROWS ONLY
+
+EXEC  pagcatproductsnamedescending 'outdoor', 1, 2
+
+

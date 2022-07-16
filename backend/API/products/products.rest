@@ -16,7 +16,7 @@ GET http://localhost:8081/category/all/official/price/asc
 ###
 ##/category/pg/:category/:page/:orderby/:orderform/:limit
 ##4. products by category paginated
-GET http://localhost:8081/category/pg/outdoor/2/price/asc/10
+GET http://localhost:8081/category/pg/outdoor/1/price/asc/1
 
 ###
 ##/:id
