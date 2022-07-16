@@ -1,12 +1,12 @@
 ##/all/:orderBy/:orderForm
 ## 1. all products
-GET http://localhost:8081/all/price/desc
+GET http://localhost:8081/all/price/asc
 
 ###
 
 ##/pg/:page/:orderBy/:orderForm/:limit
 ## 2. All products paginated
-GET http://localhost:8081/pg/2/price/asc/3
+GET http://localhost:8081/pg/2/price/asc/1
 
 ###
 ##/category/all/:category/:orderby/:orderform

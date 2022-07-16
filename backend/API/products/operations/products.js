@@ -75,4 +75,40 @@ const readProductsPaginated= async (params)=> {
 };
 
 
-module.exports={readAllProucts, readProductsPaginated};
+const readAllProuctsByCategory= async (params)=> {
+  let query='';
+  const {category, orderby, orderform}= params;
+  if (orderby==='price'&&orderform==='asc') {
+    query=`EXEC catproductspriceascending ${category}`;
+  } else if (orderby==='price'&&orderform==='desc') {
+    query=`EXEC catproductspricedescending ${category}`;
+  } else if (orderby==='name'&&orderform==='asc') {
+    query=`EXEC catproductsnameascending ${category}`;
+  } else if (orderby==='name'&&orderform==='desc') {
+    query=`EXEC catproductsnamedescending ${category}`;
+  } else {
+    return {
+      success: false,
+      error: 'Error on url parameters',
+    };
+  }
+  const pool = await poolPromise();
+  const data = pool.query(query).then((result)=>{
+    return {
+      success: true,
+      data: result.recordset,
+    };
+  })
+      .catch((err)=>{
+        return {
+          success: false,
+          error: err.message,
+        };
+      });
+  return (data);
+};
+
+
+module.exports={readAllProucts,
+  readProductsPaginated,
+  readAllProuctsByCategory};
