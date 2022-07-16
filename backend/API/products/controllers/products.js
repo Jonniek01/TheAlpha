@@ -3,7 +3,8 @@ const {readAllProucts,
   readAllProuctsByCategory,
   readProuctsByCategoryPaginated,
   readProuctById,
-  updateProduct} = require('../operations/products');
+  updateProduct,
+  clearProduct} = require('../operations/products');
 
 module.exports = {
   getProducts: async (req, res) =>{
@@ -138,9 +139,22 @@ module.exports = {
     });
   },
   deleteProduct: async (req, res) =>{
-    const {id} = req.params;
-    res.send(`deleting product by id ${id} `);
-    // verify params and body schema and continue to operations
+    const response=await clearProduct(req.params);
+    if (response.success) {
+      res.status(200).send({
+        success: true,
+        status: 200,
+        message: 'product delete successful',
+        products: response.data,
+      });
+      return;
+    }
+    res.status(502).send({
+      success: false,
+      status: 502,
+      message: 'Database operation error',
+      error: response.error,
+    });
   },
 };
 

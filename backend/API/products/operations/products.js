@@ -181,10 +181,30 @@ const updateProduct = async (reqparams, reqbody) =>{
   return (data);
 };
 
+const clearProduct = async (params) =>{
+  const {id} = params;
+  const query=`EXEC clearproduct ${id}`;
+  const pool = await poolPromise();
+  const data = pool.query(query).then((result)=>{
+    return {
+      success: true,
+      data: result.recordset,
+    };
+  })
+      .catch((err)=>{
+        return {
+          success: false,
+          error: err.message,
+        };
+      });
+  return (data);
+};
+
 
 module.exports={readAllProucts,
   readProductsPaginated,
   readAllProuctsByCategory,
   readProuctsByCategoryPaginated,
   readProuctById,
-  updateProduct};
+  updateProduct,
+  clearProduct};
