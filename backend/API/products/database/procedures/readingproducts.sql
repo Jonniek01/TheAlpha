@@ -1,13 +1,5 @@
 USE Products
 
-CREATE PROCEDURE SelectAllProducts
-AS
-SELECT * FROM products
-GO;
- 
-
-EXEC SelectAllProducts
-
 
 -- 1. productspriceascending
 CREATE OR ALTER PROCEDURE 

@@ -26,15 +26,15 @@ GET http://localhost:8081/2
 ###
 ##/:id
 ## UPDATING PRODUCTS
-PATCH http://localhost:8081/p1
+PATCH http://localhost:8081/3
 Content-Type: application/json
 
 {
-    "name":"test product 1",
+    "name":"Ankle socks",
     "price":222,
     "image":"https://url/image",
     "description":"testing endpoint",
-    "category":"outdoon"
+    "category":"outdoor"
 }
 
 ###
@@ -56,7 +56,7 @@ GET http://localhost:8081/categories/all
 
 ###
 ##/all
-## CREATE CATEGOR
+## CREATE CATEGORY
 POST http://localhost:8081/categories/
 Content-Type: application/json
 

@@ -159,8 +159,32 @@ const readProuctById = async (params) =>{
       });
   return (data);
 };
+
+const updateProduct = async (reqparams, reqbody) =>{
+  const {id} = reqparams;
+  const {name, price, image, description, category} = reqbody;
+  const query=`EXEC updateproduct ${id}, 
+  '${name}', ${price}, '${image}','${description}','${category}'`;
+  const pool = await poolPromise();
+  const data = pool.query(query).then((result)=>{
+    return {
+      success: true,
+      data: result.recordset,
+    };
+  })
+      .catch((err)=>{
+        return {
+          success: false,
+          error: err.message,
+        };
+      });
+  return (data);
+};
+
+
 module.exports={readAllProucts,
   readProductsPaginated,
   readAllProuctsByCategory,
   readProuctsByCategoryPaginated,
-  readProuctById};
+  readProuctById,
+  updateProduct};
