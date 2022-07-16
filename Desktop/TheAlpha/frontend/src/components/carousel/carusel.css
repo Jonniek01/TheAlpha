@@ -1,0 +1,35 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel {
+    margin: 0 auto;
+    overflow: hidden;
+    max-width: 900px;
+  }
+  
+  .carousel-inner {
+    white-space: nowrap;
+  }
+  
+  .carousel-item {
+    display: inline-block;
+    width: 100%;
+  }
+  .carousel-item img{
+    width: 100%;
+  }
+  .carousel-inner {
+    white-space: nowrap;
+    transition: ease 1s;
+  }
