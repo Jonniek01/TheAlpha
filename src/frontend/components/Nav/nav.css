@@ -1,0 +1,33 @@
+.navbar{
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+}
+.nav-top{
+    display:flex;
+    justify-content: space-evenly;
+    padding: 2rem;
+}
+.search{
+    border-radius:5px;
+}
+.logo{
+    font-size: larger;
+    font-weight: 20px;
+    color: grey;
+}
+.carticon{
+    display: flex;
+    gap:5px;
+}
+.nav-bottom{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.nav-bottom li{
+    display: flex;
+   color: gray;
+   list-style:none ;
+}
