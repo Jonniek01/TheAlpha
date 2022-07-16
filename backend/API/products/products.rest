@@ -1,0 +1,95 @@
+##/all/:orderBy/:orderForm
+## 1. all products
+GET http://localhost:8081/all/price/asc
+
+###
+
+##/pg/:page/:orderBy/:orderForm/:limit
+## 2. All products paginated
+GET http://localhost:8081/pg/2/price/asc/1
+
+###
+##/category/all/:category/:orderby/:orderform
+## 3. products by category all
+GET http://localhost:8081/category/all/official/price/asc
+
+###
+##/category/pg/:category/:page/:orderby/:orderform/:limit
+##4. products by category paginated
+GET http://localhost:8081/category/pg/outdoor/1/price/asc/1
+
+###
+##/:id
+## 5. Get product by id
+GET http://localhost:8081/1
+
+###
+##/:id
+## UPDATING PRODUCTS
+PATCH http://localhost:8081/1
+Content-Type: application/json
+
+{
+    "name":"Ankle socks",
+    "price":222,
+    "image":"https://url/image",
+    "description":"testing endpoint",
+    "category":"outdoor"
+}
+
+###
+##/:id
+## DELETING PRODUCT
+PATCH http://localhost:8081/del/2
+###
+##/:idS
+## CREATING PRODUCT
+POST http://localhost:8081/post
+Content-Type: application/json
+
+{
+    "name":"Shorts",
+    "price":222,
+    "image":"https://url/image",
+    "description":"testing endpoint",
+    "category":"outdoor"
+}
+
+###
+
+##PRODUCT CATEGORIES
+##/all
+## GET ALL CATEGORIES
+GET http://localhost:8081/categories/all
+
+###
+##/all
+## CREATE CATEGORY
+POST http://localhost:8081/categories/
+Content-Type: application/json
+
+{
+ "name":"outdoor",
+ "description":"outdoor clothings"
+}
+###
+## UPDATE CATEGORY
+PATCH http://localhost:8081/categories/c1
+Content-Type: application/json
+
+{
+ "name":"outdoor",
+ "description":"outdoor clothings"
+}
+
+
+###
+## DELETE CATEGORY
+PATCH http://localhost:8081/categories/del/c1
+Content-Type: application/json
+
+{
+ "deleted":1
+}
+
+
