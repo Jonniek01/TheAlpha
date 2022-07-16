@@ -1,6 +1,6 @@
 ##/all/:orderBy/:orderForm
 ## 1. all products
-GET http://localhost:8081/all/price/desc
+GET http://localhost:8081/all/name/asc
 
 ###
 

@@ -1,6 +1,6 @@
 module.exports = {
   getCategories: async (req, res) =>{
-    res.send('getting all categories');
+    // res.send('getting all categories');
     // verify params and body schema and continue to operations
   },
   postCategory: async (req, res) =>{

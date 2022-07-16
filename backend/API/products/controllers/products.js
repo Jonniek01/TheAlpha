@@ -1,7 +1,21 @@
+const {readAllProucts} = require('../operations/products');
+
 module.exports = {
   getProducts: async (req, res) =>{
-    res.send('getting all products');
-    // verify params and body schema and continue to operations
+    const response=await readAllProucts(req.params);
+    if (response.success) {
+      res.status(200).send({
+        status: 200,
+        message: 'success',
+        products: response.data,
+      });
+      return;
+    }
+    res.status(502).send({
+      status: 502,
+      message: 'Database operation error',
+      error: response.error,
+    });
   },
   getProductsPaginated: async (req, res) =>{
     const {page, orderby, orderform} = req.params;
