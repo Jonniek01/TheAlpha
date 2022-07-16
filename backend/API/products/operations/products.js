@@ -200,6 +200,26 @@ const clearProduct = async (params) =>{
   return (data);
 };
 
+const createProduct = async (params) =>{
+  const {name, price, image, description, category} = params;
+  const query=`EXEC createproduct
+  '${name}', ${price}, '${image}','${description}','${category}'`;
+  const pool = await poolPromise();
+  const data = pool.query(query).then((result)=>{
+    return {
+      success: true,
+      data: result.recordset,
+    };
+  })
+      .catch((err)=>{
+        return {
+          success: false,
+          error: err.message,
+        };
+      });
+  return (data);
+};
+
 
 module.exports={readAllProucts,
   readProductsPaginated,
@@ -207,4 +227,5 @@ module.exports={readAllProucts,
   readProuctsByCategoryPaginated,
   readProuctById,
   updateProduct,
-  clearProduct};
+  clearProduct,
+  createProduct};
