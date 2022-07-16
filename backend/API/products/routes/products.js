@@ -23,14 +23,14 @@ products.get('/all/:orderby/:orderform',
     getProducts);
 // 2.All products paginated: pass page, orderby
 // and orderform parameters, for users
-products.get('/pg/:page/:orderby/:orderform',
+products.get('/pg/:page/:orderby/:orderform/:limit',
     getProductsPaginated);
 // 3. products by category all:orderby and orderform parameters, for users
 products.get('/category/all/:category/:orderby/:orderform',
     getProductsByCategory);
 // 4. products by category paginated: pass page,
 // orderby and orderform parameters, for users
-products.get('/category/pg/:category/:page/:orderby/:orderform',
+products.get('/category/pg/:category/:page/:orderby/:orderform/:limit',
     getProductsByCategoryPaginated);
 // 5. Get product by id
 products.get('/:id',

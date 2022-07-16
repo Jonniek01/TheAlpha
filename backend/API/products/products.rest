@@ -1,12 +1,12 @@
 ##/all/:orderBy/:orderForm
 ## 1. all products
-GET http://localhost:8081/all/name/asc
+GET http://localhost:8081/all/price/desc
 
 ###
 
-##/pg/:page/:orderBy/:orderForm
+##/pg/:page/:orderBy/:orderForm/:limit
 ## 2. All products paginated
-GET http://localhost:8081/pg/3/price/asc
+GET http://localhost:8081/pg/2/price/asc/3
 
 ###
 ##/category/all/:category/:orderby/:orderform
@@ -14,14 +14,9 @@ GET http://localhost:8081/pg/3/price/asc
 GET http://localhost:8081/category/all/official/price/asc
 
 ###
-##/category/pg/:category/:page/:orderby/:orderform
-## 3. products by category paginated
-GET http://localhost:8081/category/pg/outdoor/2/price/asc
-
-###
-##/category/pg/:category/:page/:orderby/:orderform
+##/category/pg/:category/:page/:orderby/:orderform/:limit
 ##4. products by category paginated
-GET http://localhost:8081/category/pg/outdoor/2/price/asc
+GET http://localhost:8081/category/pg/outdoor/2/price/asc/10
 
 ###
 ##/:id

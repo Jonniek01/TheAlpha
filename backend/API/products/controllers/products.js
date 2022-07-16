@@ -1,10 +1,12 @@
-const {readAllProucts} = require('../operations/products');
+const {readAllProucts,
+  readProductsPaginated} = require('../operations/products');
 
 module.exports = {
   getProducts: async (req, res) =>{
     const response=await readAllProucts(req.params);
     if (response.success) {
       res.status(200).send({
+        success: true,
         status: 200,
         message: 'success',
         products: response.data,
@@ -12,15 +14,38 @@ module.exports = {
       return;
     }
     res.status(502).send({
+      success: false,
       status: 502,
       message: 'Database operation error',
       error: response.error,
     });
   },
   getProductsPaginated: async (req, res) =>{
-    const {page, orderby, orderform} = req.params;
-    res.send(`getting products paginated page: ${page},
-     order by: ${orderby}, order form: ${orderform} `);
+    const response=await readProductsPaginated(req.params);
+    if (response.success) {
+      if (response.data.length===0) {
+        res.status(502).send({
+          success: false,
+          status: 502,
+          message: 'Database operation error',
+          error: 'page does not exist',
+        });
+        return;
+      }
+      res.status(200).send({
+        success: true,
+        status: 200,
+        message: 'success',
+        products: response.data,
+      });
+      return;
+    }
+    res.status(502).send({
+      success: false,
+      status: 502,
+      message: 'Database operation error',
+      error: response.error,
+    });
 
     // verify params and body schema and continue to operations
   },
