@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
+const {customers} = require('./routes/customers');
 
 
 const app = express();
@@ -10,9 +11,8 @@ app.use(cors());
 
 const PORT = 8082;
 
-app.get('/', (req, res)=>{
-  res.send('Customers microservices');
-});
+app.use('/', customers);
+
 
 app.listen(PORT, () => {
   console.log(`Customers microservices running at port ${PORT}`);
