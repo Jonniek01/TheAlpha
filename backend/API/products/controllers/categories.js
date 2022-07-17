@@ -1,25 +1,84 @@
+const {readAllCategories,
+  createCategory,
+  updateCategory,
+  removeCategory} = require('../operations/categories');
+
 module.exports = {
   getCategories: async (req, res) =>{
-    // res.send('getting all categories');
     // verify params and body schema and continue to operations
+    const response=await readAllCategories(req.params);
+    if (response.success) {
+      res.status(200).send({
+        success: true,
+        status: 200,
+        message: 'success',
+        products: response.data,
+      });
+      return;
+    }
+    res.status(502).send({
+      success: false,
+      status: 502,
+      message: 'Database operation error',
+      error: response.error,
+    });
   },
   postCategory: async (req, res) =>{
-    const {name, description} = req.body;
-    res.send(`creating category with
-     name ${name}, and description ${description}`);
     // verify params and body schema and continue to operations
+    const response=await createCategory(req.body);
+    if (response.success) {
+      res.status(200).send({
+        success: true,
+        status: 200,
+        message: 'success',
+        products: response.data,
+      });
+      return;
+    }
+    res.status(502).send({
+      success: false,
+      status: 502,
+      message: 'Database operation error',
+      error: response.error,
+    });
   },
   patchCategory: async (req, res) =>{
-    const {id} =req.params;
-    const {name, description} = req.body;
-    res.send(`Updating category with id ${id} to
-     name ${name}, and description ${description}`);
     // verify params and body schema and continue to operations
+    const response=await updateCategory(req.params, req.body);
+    if (response.success) {
+      res.status(200).send({
+        success: true,
+        status: 200,
+        message: 'success',
+        products: response.data,
+      });
+      return;
+    }
+    res.status(502).send({
+      success: false,
+      status: 502,
+      message: 'Database operation error',
+      error: response.error,
+    });
   },
   deleteCategory: async (req, res) =>{
-    const {id} =req.params;
-    res.send(`Deleting category with id ${id} `);
     // verify params and body schema and continue to operations
+    const response=await removeCategory(req.params);
+    if (response.success) {
+      res.status(200).send({
+        success: true,
+        status: 200,
+        message: 'success',
+        products: response.data,
+      });
+      return;
+    }
+    res.status(502).send({
+      success: false,
+      status: 502,
+      message: 'Database operation error',
+      error: response.error,
+    });
   },
 };
 

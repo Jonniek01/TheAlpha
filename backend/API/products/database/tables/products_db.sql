@@ -1,5 +1,3 @@
-CREATE DATABASE Products
- 
  use Products
 
  create TABLE products(
@@ -14,13 +12,7 @@ CREATE DATABASE Products
  )
 
 
-CREATE TABLE categories(
-id int NOT NULL PRIMARY KEY IDENTITY(1,1),
-name VARCHAR(50) NOT NULL,
-description VARCHAR(255) NOT NULL,
-deleted BIT
- )
- DROP TABLE products
+
 
 
 INSERT INTO products (name, price, image, description, category)

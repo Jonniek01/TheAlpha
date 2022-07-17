@@ -15,18 +15,18 @@ Content-Type: application/json
 }
 ###
 ## UPDATE CATEGORY
-PATCH http://localhost:8081/categories/c1
+PATCH http://localhost:8081/categories/1
 Content-Type: application/json
 
 {
- "name":"outdoor",
- "description":"outdoor clothings"
+ "name":"official",
+ "description":"Official wear"
 }
 
 
 ###
 ## DELETE CATEGORY
-PATCH http://localhost:8081/categories/del/c1
+PATCH http://localhost:8081/categories/del/5
 
 
 
