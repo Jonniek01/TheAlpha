@@ -37,7 +37,7 @@ customers.patch('/logout',
 /* 4.  update account*/
 
 // Require to be logged in
-customers.patch('/update',
+customers.patch('/update/:id',
     update);
 /*
     id int NOT NULL PRIMARY KEY,
@@ -60,7 +60,7 @@ customers.get('/all',
 /* 7. Deleting a customer*/
 // Require to be logged in
 
-customers.patch('/delete/',
+customers.patch('/delete/:id',
     deleter);
 /*
      email VARCHAR(50) NOT NULL,

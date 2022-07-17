@@ -1,5 +1,10 @@
 const {createCustomer,
-}= require('../operations/customers');
+  logCustomer,
+  logout,
+  updatecustomer,
+  readcustomer,
+  readcustomers,
+  deletecustomer}= require('../operations/customers');
 module.exports = {
   signUp: async (req, res) =>{
     // verify schema here
@@ -21,22 +26,118 @@ module.exports = {
     });
   },
   logIn: async (req, res) =>{
-    res.send({mesage: 'login here'});
+    // verify schema here
+    const response=await logCustomer(req.body);
+    if (response.success) {
+      res.status(200).send({
+        success: true,
+        status: 200,
+        message: 'success',
+        products: response.data,
+      });
+      return;
+    }
+    res.status(502).send({
+      success: false,
+      status: 502,
+      message: 'Database operation error',
+      error: response.error,
+    });
   },
   logOut: async (req, res) =>{
-    res.send({mesage: 'logout here'});
+    // verify schema here
+    const response=await logout(req.body);
+    if (response.success) {
+      res.status(200).send({
+        success: true,
+        status: 200,
+        message: 'success',
+        products: response.data,
+      });
+      return;
+    }
+    res.status(502).send({
+      success: false,
+      status: 502,
+      message: 'Database operation error',
+      error: response.error,
+    });
   },
   update: async (req, res) =>{
-    res.send({mesage: 'update here'});
+    // verify schema here
+    const response=await updatecustomer(req.params, req.body);
+    if (response.success) {
+      res.status(200).send({
+        success: true,
+        status: 200,
+        message: 'success',
+        products: response.data,
+      });
+      return;
+    }
+    res.status(502).send({
+      success: false,
+      status: 502,
+      message: 'Database operation error',
+      error: response.error,
+    });
   },
   getCustomer: async (req, res) =>{
-    res.send({mesage: 'customer here'});
+    // verify schema here
+    const response=await readcustomer(req.params);
+    if (response.success) {
+      res.status(200).send({
+        success: true,
+        status: 200,
+        message: 'success',
+        products: response.data,
+      });
+      return;
+    }
+    res.status(502).send({
+      success: false,
+      status: 502,
+      message: 'Database operation error',
+      error: response.error,
+    });
   },
   getCustomers: async (req, res) =>{
-    res.send({mesage: 'customers here'});
+    // verify schema here
+    const response=await readcustomers();
+    if (response.success) {
+      res.status(200).send({
+        success: true,
+        status: 200,
+        message: 'success',
+        products: response.data,
+      });
+      return;
+    }
+    res.status(502).send({
+      success: false,
+      status: 502,
+      message: 'Database operation error',
+      error: response.error,
+    });
   },
   deleter: async (req, res) =>{
-    res.send({mesage: 'delete here'});
+    // verify schema here
+    const response=await deletecustomer(req.params);
+    if (response.success) {
+      res.status(200).send({
+        success: true,
+        status: 200,
+        message: 'success',
+        products: response.data,
+      });
+      return;
+    }
+    res.status(502).send({
+      success: false,
+      status: 502,
+      message: 'Database operation error',
+      error: response.error,
+    });
   },
 
 
