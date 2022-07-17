@@ -1,7 +1,24 @@
-const { }= require('../operations/customers');
+const {createCustomer,
+}= require('../operations/customers');
 module.exports = {
   signUp: async (req, res) =>{
-    res.send({mesage: 'signup here'});
+    // verify schema here
+    const response=await createCustomer(req.body);
+    if (response.success) {
+      res.status(200).send({
+        success: true,
+        status: 200,
+        message: 'success',
+        products: response.data,
+      });
+      return;
+    }
+    res.status(502).send({
+      success: false,
+      status: 502,
+      message: 'Database operation error',
+      error: response.error,
+    });
   },
   logIn: async (req, res) =>{
     res.send({mesage: 'login here'});

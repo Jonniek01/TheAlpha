@@ -53,11 +53,12 @@ customers.get('/id/:id',
     getCustomer);
 
 /* 6. Get all customers*/
-
+// Require admin
 customers.get('/all',
     getCustomers);
 
 /* 7. Deleting a customer*/
+// Require to be logged in
 
 customers.patch('/delete/',
     deleter);
