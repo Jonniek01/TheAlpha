@@ -9,3 +9,5 @@
      location VARCHAR(50) NOT NULL,
      deleted BIT DEFAULT 0
  )
+
+DROP TABLE ratings
