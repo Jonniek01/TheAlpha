@@ -1,0 +1,32 @@
+##PRODUCT CATEGORIES
+##/all
+## GET ALL CATEGORIES
+GET http://localhost:8081/categories/all
+
+###
+##/all
+## CREATE CATEGORY
+POST http://localhost:8081/categories/
+Content-Type: application/json
+
+{
+ "name":"outdoor",
+ "description":"outdoor clothings"
+}
+###
+## UPDATE CATEGORY
+PATCH http://localhost:8081/categories/1
+Content-Type: application/json
+
+{
+ "name":"official",
+ "description":"Official wear"
+}
+
+
+###
+## DELETE CATEGORY
+PATCH http://localhost:8081/categories/del/5
+
+
+

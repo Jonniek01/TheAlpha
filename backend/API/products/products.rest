@@ -57,39 +57,3 @@ Content-Type: application/json
 
 ###
 
-##PRODUCT CATEGORIES
-##/all
-## GET ALL CATEGORIES
-GET http://localhost:8081/categories/all
-
-###
-##/all
-## CREATE CATEGORY
-POST http://localhost:8081/categories/
-Content-Type: application/json
-
-{
- "name":"outdoor",
- "description":"outdoor clothings"
-}
-###
-## UPDATE CATEGORY
-PATCH http://localhost:8081/categories/c1
-Content-Type: application/json
-
-{
- "name":"outdoor",
- "description":"outdoor clothings"
-}
-
-
-###
-## DELETE CATEGORY
-PATCH http://localhost:8081/categories/del/c1
-Content-Type: application/json
-
-{
- "deleted":1
-}
-
-
