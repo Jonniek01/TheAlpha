@@ -5,13 +5,13 @@ const {signUp,
   logIn,
   logOut,
   update,
-  getCustomer,
-  getCustomers,
-  deleter} = require('../controllers/customers.js');
-const customers = express.Router();
+  getAdmin,
+  getAdmins,
+  deleter} = require('../controllers/admins.js');
+const admins = express.Router();
 
 /* 1. CUSTOMERS SIGN UP*/
-customers.post('/signup',
+admins.post('/signup',
     signUp);
 
 /*    id int NOT NULL PRIMARY KEY,
@@ -23,7 +23,7 @@ customers.post('/signup',
      */
 
 /* 2.  Log in*/
-customers.post('/login',
+admins.post('/login',
     logIn);
 /* email VARCHAR(50) NOT NULL,
      password VARCHAR(50) NOT NULL,
@@ -31,13 +31,13 @@ customers.post('/login',
 
 /* 3. Log out*/
 // Require to be logged in
-customers.patch('/logout',
+admins.patch('/logout',
     logOut);
 
 /* 4.  update account*/
 
 // Require to be logged in
-customers.patch('/update/:id',
+admins.patch('/update/:id',
     update);
 /*
     id int NOT NULL PRIMARY KEY,
@@ -49,18 +49,18 @@ customers.patch('/update/:id',
 */
 /* 5. Get customer by id*/
 
-customers.get('/id/:id',
-    getCustomer);
+admins.get('/id/:id',
+    getAdmin);
 
-/* 6. Get all customers*/
+/* 6. Get all admins*/
 // Require admin
-customers.get('/all',
-    getCustomers);
+admins.get('/all',
+    getAdmins);
 
 /* 7. Deleting a customer*/
 // Require to be logged in
 
-customers.patch('/delete/:id',
+admins.patch('/delete/:id',
     deleter);
 /*
      email VARCHAR(50) NOT NULL,
@@ -69,4 +69,4 @@ customers.patch('/delete/:id',
 */
 
 
-module.exports = {customers};
+module.exports = {admins};

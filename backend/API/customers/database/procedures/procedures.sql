@@ -58,7 +58,7 @@ findcustomer
     @id INT
 AS
 SELECT
-name, email, password, phone, location
+id,name, email, password, phone, location
 FROM customers
 WHERE id=@id
 AND
@@ -70,7 +70,7 @@ CREATE OR ALTER PROCEDURE
 readcustomers
 AS
 SELECT
-name, email, password, phone, location
+id, name, email, password, phone, location
 FROM customers
 WHERE
 deleted=0
