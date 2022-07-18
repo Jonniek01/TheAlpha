@@ -8,7 +8,8 @@ const {
   getProductById,
   postProduct,
   patchProduct,
-  deleteProduct} = require('../controllers/products.js');
+  deleteProduct,
+  searchProduct} = require('../controllers/products.js');
 const products = express.Router();
 
 /* orderby: name or price or none {"na"}
@@ -65,6 +66,11 @@ products.patch('/:id',
 
 /* DELETING PRODUCTS*/
 products.patch('/del/:id', deleteProduct);
+/*
+deleted: BIT
+*/
+/* SEARCHS*/
+products.post('/search/:param', searchProduct);
 /*
 deleted: BIT
 */

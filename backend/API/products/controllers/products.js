@@ -5,7 +5,8 @@ const {readAllProucts,
   readProuctById,
   updateProduct,
   clearProduct,
-  createProduct} = require('../operations/products');
+  createProduct,
+  searchproduct} = require('../operations/products');
 
 module.exports = {
   getProducts: async (req, res) =>{
@@ -170,6 +171,25 @@ module.exports = {
       error: response.error,
     });
   },
+  searchProduct: async (req, res) =>{
+    const response=await searchproduct(req.params);
+    if (response.success) {
+      res.status(200).send({
+        success: true,
+        status: 200,
+        message: 'product delete successful',
+        products: response.data,
+      });
+      return;
+    }
+    res.status(502).send({
+      success: false,
+      status: 502,
+      message: 'Database operation error',
+      error: response.error,
+    });
+  },
+
 };
 
 

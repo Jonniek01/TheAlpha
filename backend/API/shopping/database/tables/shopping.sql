@@ -10,7 +10,8 @@ CREATE DATABASE Shopping
      total VARCHAR(50) NOT NULL,
      active VARCHAR(50) NOT NULL,
  )
- CREATE TABLE orders(
+
+CREATE TABLE orders(
 id int NOT NULL PRIMARY KEY,
 customer_id int NOT NULL,
 content VARCHAR(255) NOT NULL,

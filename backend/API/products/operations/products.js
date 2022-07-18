@@ -219,6 +219,24 @@ const createProduct = async (params) =>{
       });
   return (data);
 };
+const searchproduct = async (params) =>{
+  const {param} = params;
+  const query=`EXEC searchroduct ${param}`;
+  const pool = await poolPromise();
+  const data = pool.query(query).then((result)=>{
+    return {
+      success: true,
+      data: result.recordset,
+    };
+  })
+      .catch((err)=>{
+        return {
+          success: false,
+          error: err.message,
+        };
+      });
+  return (data);
+};
 
 
 module.exports={readAllProucts,
@@ -228,4 +246,5 @@ module.exports={readAllProucts,
   readProuctById,
   updateProduct,
   clearProduct,
-  createProduct};
+  createProduct,
+  searchproduct};
