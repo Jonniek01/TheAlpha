@@ -8,22 +8,32 @@ const {createAdmin,
 module.exports = {
   signUp: async (req, res) =>{
     // verify schema here
-    const response=await createAdmin(req.body);
-    if (response.success) {
-      res.status(200).send({
-        success: true,
-        status: 200,
-        message: 'success',
-        products: response.data,
+    const {adminkey} = req.body;
+    if (adminkey===process.env.ADMINKEY) {
+      const response=await createAdmin(req.body);
+      if (response.success) {
+        res.status(200).send({
+          success: true,
+          status: 200,
+          message: 'success',
+          products: response.data,
+        });
+        return;
+      }
+      res.status(502).send({
+        success: false,
+        status: 502,
+        message: 'Database operation error',
+        error: response.error,
       });
-      return;
+    } else {
+      res.status(401).send({
+        success: false,
+        status: 401,
+        message: 'Provide an admin key to register as an admin',
+        error: 'not authorized',
+      });
     }
-    res.status(502).send({
-      success: false,
-      status: 502,
-      message: 'Database operation error',
-      error: response.error,
-    });
   },
   logIn: async (req, res) =>{
     // verify schema here
@@ -82,7 +92,7 @@ module.exports = {
       error: response.error,
     });
   },
-  getCustomer: async (req, res) =>{
+  getAdmin: async (req, res) =>{
     // verify schema here
     const response=await readadmin(req.params);
     if (response.success) {
@@ -101,7 +111,7 @@ module.exports = {
       error: response.error,
     });
   },
-  getCustomers: async (req, res) =>{
+  getAdmins: async (req, res) =>{
     // verify schema here
     const response=await readadmins();
     if (response.success) {

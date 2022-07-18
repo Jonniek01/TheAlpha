@@ -3,10 +3,10 @@ const bcrypt = require('bcryptjs');
 
 /* logAdmin,logout not working*/
 const createAdmin= async (params)=> {
-  const {name, email, password, phone, location}= params;
+  const {name, email, password}= params;
   const hashedPass = await bcrypt.hash(password, 8);
   const query=`EXEC createadmin
-  '${name}','${email}','${hashedPass}','${phone}','${location}'`;
+  '${name}','${email}','${hashedPass}'`;
   const pool = await poolPromise();
   const data = pool.query(query).then((result)=>{
     return {
@@ -80,11 +80,11 @@ const logout = async (params) =>{
 };
 const updateadmin= async (reqparams, reqbody) =>{
   const {id} = reqparams;
-  const {name, email, password, phone, location}= reqbody;
+  const {name, email, password}= reqbody;
   const hashedPass = await bcrypt.hash(password, 8);
 
   const query=`EXEC updateadmin${id},
-  '${name}','${email}','${hashedPass}','${phone}','${location}'`;
+  '${name}','${email}','${hashedPass}'`;
   const pool = await poolPromise();
   const data = pool.query(query).then((result)=>{
     return {

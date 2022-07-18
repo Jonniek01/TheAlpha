@@ -1,20 +1,18 @@
-const express = require("express");
+const express = require('express');
 const cors = require('cors');
-require('dotenv').config()
+require('dotenv').config();
+const {admins} = require('./routes/admins');
 
 
-const app = express()
-app.use(express.json())
+const app = express();
+app.use(express.json());
 app.use(cors());
 
 
+const PORT = 8085;
 
-const PORT = 8085
-
-app.get('/',(req,res)=>{
-    res.send("Admin microservice")
-})
+app.use('/', admins);
 
 app.listen(PORT, () => {
-    console.log(`Admin microservice running at port ${PORT}`)
-})
+  console.log(`Admin microservice running at port ${PORT}`);
+});
