@@ -3,9 +3,9 @@ POST http://localhost:8082/signup
 Content-Type: application/json
 
 {
-    "name":"Sams",
-    "email":"kyle@gmail.com",
-    "password":"Pass1",
+    "name":"ely",
+    "email":"ely@gmail.com",
+    "password":"Pass2",
     "phone":"+25411",
     "location":"Kenol"
 }
@@ -15,8 +15,8 @@ POST http://localhost:8082/login
 Content-Type: application/json
 
 {
-    "email":"sam@gmail.com",
-    "password":"Pass1"
+    "email":"ely@gmail.com",
+    "password":"Pass2"
 }
 ###
 ## 3. Log Out
@@ -35,7 +35,7 @@ Content-Type: application/json
 }
 ###
 ## 5. get customer by id
-GET http://localhost:8082/id/5
+GET http://localhost:8082/id/1
 ###
 ## 6. get all customers
 GET http://localhost:8082/all
