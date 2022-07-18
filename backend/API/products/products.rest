@@ -42,7 +42,7 @@ Content-Type: application/json
 ## DELETING PRODUCT
 PATCH http://localhost:8081/del/2
 ###
-##/:idS
+##/:post
 ## CREATING PRODUCT
 POST http://localhost:8081/post
 Content-Type: application/json
@@ -57,3 +57,7 @@ Content-Type: application/json
 
 ###
 
+##/:search/:param
+## DELETING PRODUCT
+POST http://localhost:8081/search/kiw
+###
