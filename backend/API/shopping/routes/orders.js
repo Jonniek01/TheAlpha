@@ -30,7 +30,7 @@ orders.get('/user/:uid',
 orders.patch('/:id',
     updateOrder);
 /* Delete order by id*/
-orders.delete('/:id',
+orders.patch('/cl/:id',
     deleteOrder);
 
 

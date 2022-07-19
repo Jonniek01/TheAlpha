@@ -28,6 +28,6 @@ Content-Type: application/json
 }
 ###
 
-##DELETE order by  Id
-DELETE http://localhost:8083/orders/1
+##CLEAR order by  Id
+PATCH http://localhost:8083/orders/cl/1
 ###
