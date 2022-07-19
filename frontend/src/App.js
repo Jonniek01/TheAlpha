@@ -4,6 +4,7 @@ import Carousel from './carousel/carousel'
 import Products from './components/Products/products'
 import {Provider} from 'react-redux'
 import store from './redux/store/productStore'
+import Footer from './components/Footer/footer'
 
 function App() {
   const slides =[
@@ -16,6 +17,7 @@ function App() {
       <Nav/>
      <Carousel slides={slides}/>
      <Products/>
+     <Footer/>
     </div>
     </Provider>
   );
