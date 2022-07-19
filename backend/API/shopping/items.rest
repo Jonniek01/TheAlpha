@@ -1,0 +1,33 @@
+##Get all items
+GET http://localhost:8083/items
+###
+
+##Create item
+POST http://localhost:8083/items
+Content-Type: application/json
+
+{
+
+}
+###
+
+##Get item by  Id
+GET http://localhost:8083/items/1
+###
+
+##Get item by  Uid
+GET http://localhost:8083/items/user/1
+###
+
+##Update item
+PATCH http://localhost:8083/items/1
+Content-Type: application/json
+
+{
+
+}
+###
+
+##DELETE item by  Id
+DELETE http://localhost:8083/items/1
+###

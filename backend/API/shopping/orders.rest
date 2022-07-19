@@ -1,0 +1,33 @@
+##Get all orders
+GET http://localhost:8083/orders
+###
+
+##Create order
+POST http://localhost:8083/orders
+Content-Type: application/json
+
+{
+
+}
+###
+
+##Get order by  Id
+GET http://localhost:8083/orders/1
+###
+
+##Get order by  Uid
+GET http://localhost:8083/orders/user/1
+###
+
+##Update order
+PATCH http://localhost:8083/orders/1
+Content-Type: application/json
+
+{
+
+}
+###
+
+##DELETE order by  Id
+DELETE http://localhost:8083/orders/1
+###
