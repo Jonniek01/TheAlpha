@@ -1,20 +1,21 @@
-const express = require("express");
+const express = require('express');
 const cors = require('cors');
-require('dotenv').config()
+require('dotenv').config();
+const {orders} = require('./routes/orders');
+const {items} = require('./routes/items');
 
 
-const app = express()
-app.use(express.json())
+const app = express();
+app.use(express.json());
 app.use(cors());
 
 
+const PORT = 8083;
+app.use('/items', items);
 
-const PORT = 8083
+app.use('/orders', orders);
 
-app.get('/',(req,res)=>{
-    res.send("Shopping microservice")
-})
 
 app.listen(PORT, () => {
-    console.log(`Shopping microservice running at port ${PORT}`)
-})
+  console.log(`Shopping microservice running at port ${PORT}`);
+});

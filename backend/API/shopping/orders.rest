@@ -1,0 +1,40 @@
+##Get all orders
+GET http://localhost:8083/orders
+###
+
+##Create order
+POST http://localhost:8083/orders
+Content-Type: application/json
+
+{
+      "customer_id": 2,
+      "items": "[{},{},{},{}]",
+      "items_count": 4,
+      "total": 888.5
+
+}
+###
+
+##Get order by  Id
+GET http://localhost:8083/orders/1
+###
+
+##Get order by  Uid
+GET http://localhost:8083/orders/user/1
+###
+
+##Update order
+PATCH http://localhost:8083/orders/2002
+Content-Type: application/json
+
+{
+      "items": "[{\"name\":\"john\"},{'name':'test'},{},{}]",
+      "items_count": 4,
+      "total": 888.5
+
+}
+###
+
+##CLEAR order by  Id
+PATCH http://localhost:8083/orders/cl/1
+###
