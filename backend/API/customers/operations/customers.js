@@ -1,5 +1,5 @@
 const poolPromise = require('../config/poolPromise');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 /* logCustomer,logout not working*/
 const createCustomer= async (params)=> {
@@ -47,11 +47,11 @@ const logCustomer= async (params)=> {
         };
       });
   const data= await queryresult;
+  const dbPass =await bcrypt.compare(password, data.data.password);
+  console.log('progressing', dbPass);
 
   if (data.success) {
-    const dbPass =
-     // eslint-disable-next-line new-cap
-     await bcrypt.CompareHashAndPassword(password, data.data.password);
+    const dbPass =await bcrypt.compare(password, data.data.password);
     console.log('progressing', dbPass);
 
     return {
