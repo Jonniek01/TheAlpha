@@ -1,0 +1,41 @@
+.Nav{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+.nav-top{
+    display: flex;
+    justify-content: space-between;
+    gap:10px;
+}.logo h2{
+    font-size: larger;
+    font-style: italic;
+    font-weight: 20px;
+}
+.search-bar{
+    display: flex
+}
+.search-bar  button input{
+    height: 10px;
+    width: 10rem;
+    background-color: white;
+}
+.nav-icons{
+    display: flex;
+    gap: 1.5rem;
+
+}
+.nav-bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-bottom ul{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+.nav-bottom ul li:hover{
+    border-bottom: solid white;
+}
