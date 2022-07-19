@@ -1,4 +1,9 @@
 const {readItems,
+  createitem,
+  getitem,
+  getitemuid,
+  updateitem,
+  clearitem,
 } = require('../operations/items');
 
 module.exports = {
@@ -23,7 +28,7 @@ module.exports = {
   },
   getItem: async (req, res) =>{
     // verify params and body schema and continue to operations
-    const response=await readItems(req.params);
+    const response=await getitem(req.params);
     if (response.success) {
       res.status(200).send({
         success: true,
@@ -43,7 +48,7 @@ module.exports = {
 
   getItemsUid: async (req, res) =>{
     // verify params and body schema and continue to operations
-    const response=await readItems(req.params);
+    const response=await getitemuid(req.params);
     if (response.success) {
       res.status(200).send({
         success: true,
@@ -63,7 +68,7 @@ module.exports = {
 
   updateItem: async (req, res) =>{
     // verify params and body schema and continue to operations
-    const response=await readItems(req.params);
+    const response=await updateitem(req.params, req.body);
     if (response.success) {
       res.status(200).send({
         success: true,
@@ -81,9 +86,9 @@ module.exports = {
     });
   },
 
-  deleteItem: async (req, res) =>{
+  clearItem: async (req, res) =>{
     // verify params and body schema and continue to operations
-    const response=await readItems(req.params);
+    const response=await clearitem(req.params);
     if (response.success) {
       res.status(200).send({
         success: true,
@@ -103,7 +108,7 @@ module.exports = {
 
   createItem: async (req, res) =>{
     // verify params and body schema and continue to operations
-    const response=await readItems(req.params);
+    const response=await createitem(req.body);
     if (response.success) {
       res.status(200).send({
         success: true,

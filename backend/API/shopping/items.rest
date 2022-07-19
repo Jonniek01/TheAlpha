@@ -6,8 +6,11 @@ GET http://localhost:8083/items
 POST http://localhost:8083/items
 Content-Type: application/json
 
-{
-
+{ 
+    "customer_id": 10,
+      "product_id": 3,
+      "count": 7,
+      "total": 363.22
 }
 ###
 
@@ -16,14 +19,18 @@ GET http://localhost:8083/items/1
 ###
 
 ##Get item by  Uid
-GET http://localhost:8083/items/user/1
+GET http://localhost:8083/items/user/10
 ###
 
 ##Update item
-PATCH http://localhost:8083/items/1
+PATCH http://localhost:8083/items/2
 Content-Type: application/json
 
 {
+    "customer_id": 10,
+      "product_id": 3,
+      "count": 7,
+      "total": 363.22
 
 }
 ###

@@ -25,7 +25,7 @@ INSERT INTO orders
 VALUES
 (@cid, @items, @count, @total)
 
-EXEC createorder 1, '[{},{},{},]' ,3,855.50
+EXEC createorder 2, '[{"name":"jordan","price":5000},{"name":"handbag","price":10000}]' ,2,15000
 
 /*ORDER BY ID*/
 CREATE OR ALTER PROCEDURE 
@@ -42,7 +42,7 @@ EXEC orderbyid 1
 
 /*ORDER BY UID*/
 CREATE OR ALTER PROCEDURE 
-orderbyuid
+ordersbyuid
 @uid INT
 AS
 SELECT
@@ -51,7 +51,7 @@ FROM
 orders
 WHERE customer_id=@uid
 
-EXEC orderbyuid 1
+EXEC ordersbyuid 1
 
 
 

@@ -1,9 +1,14 @@
-const {readOrders} = require('../operations/orders');
+const {readorders,
+  createorder,
+  getorder,
+  getorderuid,
+  updateorder,
+  clearorder} = require('../operations/orders');
 
 module.exports = {
   getOrders: async (req, res) =>{
     // verify params and body schema and continue to operations
-    const response=await readOrders();
+    const response=await readorders();
     if (response.success) {
       res.status(200).send({
         success: true,
@@ -22,7 +27,7 @@ module.exports = {
   },
   getOrder: async (req, res) =>{
     // verify params and body schema and continue to operations
-    const response=await readOrders(req.params);
+    const response=await getorder(req.params);
     if (response.success) {
       res.status(200).send({
         success: true,
@@ -42,7 +47,7 @@ module.exports = {
 
   getOrdersUid: async (req, res) =>{
     // verify params and body schema and continue to operations
-    const response=await readOrders(req.params);
+    const response=await getorderuid(req.params);
     if (response.success) {
       res.status(200).send({
         success: true,
@@ -62,7 +67,7 @@ module.exports = {
 
   updateOrder: async (req, res) =>{
     // verify params and body schema and continue to operations
-    const response=await readOrders(req.params);
+    const response=await updateorder(req.params, req.body);
     if (response.success) {
       res.status(200).send({
         success: true,
@@ -82,7 +87,7 @@ module.exports = {
 
   createOrder: async (req, res) =>{
     // verify params and body schema and continue to operations
-    const response=await readOrders(req.params);
+    const response=await createorder(req.body);
     if (response.success) {
       res.status(200).send({
         success: true,
@@ -99,9 +104,9 @@ module.exports = {
       error: response.error,
     });
   },
-  deleteOrder: async (req, res) =>{
+  clearOrder: async (req, res) =>{
     // verify params and body schema and continue to operations
-    const response=await readOrders(req.params);
+    const response=await clearorder(req.params);
     if (response.success) {
       res.status(200).send({
         success: true,

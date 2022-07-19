@@ -7,6 +7,10 @@ POST http://localhost:8083/orders
 Content-Type: application/json
 
 {
+      "customer_id": 2,
+      "items": "[{},{},{},{}]",
+      "items_count": 4,
+      "total": 888.5
 
 }
 ###
@@ -20,10 +24,13 @@ GET http://localhost:8083/orders/user/1
 ###
 
 ##Update order
-PATCH http://localhost:8083/orders/1
+PATCH http://localhost:8083/orders/2002
 Content-Type: application/json
 
 {
+      "items": "[{\"name\":\"john\"},{'name':'test'},{},{}]",
+      "items_count": 4,
+      "total": 888.5
 
 }
 ###

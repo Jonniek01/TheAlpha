@@ -5,7 +5,7 @@ const {getOrders,
   getOrder,
   getOrdersUid,
   updateOrder,
-  deleteOrder,
+  clearOrder,
 
 } = require('../controllers/orders.js');
 const orders = express.Router();
@@ -31,7 +31,7 @@ orders.patch('/:id',
     updateOrder);
 /* Delete order by id*/
 orders.patch('/cl/:id',
-    deleteOrder);
+    clearOrder);
 
 
 module.exports = {orders};

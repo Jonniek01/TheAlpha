@@ -39,21 +39,6 @@ items
 WHERE id=@id
 
 EXEC itembyid 1
-CREATE OR ALTER PROCEDURE 
-createitems
-@cid INT,
-@product_id INT,
-@count INT,
-@total FLOAT
-
-AS
-INSERT INTO items
-(customer_id, product_id, count, total)
-VALUES
-(@cid, @product_id, @count, @total)
-
-EXEC createitems 2, 22, 5, 522.55
-
 /*ITEMS BY UID*/
 CREATE OR ALTER PROCEDURE 
 itemsbyuid

@@ -4,7 +4,7 @@ const {getItems,
   getItem,
   getItemsUid,
   updateItem,
-  deleteItem,
+  clearItem,
   createItem} = require('../controllers/items');
 
 const items = express.Router();
@@ -30,7 +30,7 @@ items.patch('/:id',
     updateItem);
 /* Delete item by id*/
 items.delete('/:id',
-    deleteItem);
+    clearItem);
 
 
 module.exports = {items};
