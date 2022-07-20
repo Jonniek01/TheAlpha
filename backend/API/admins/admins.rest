@@ -3,10 +3,9 @@ POST http://localhost:8085/signup
 Content-Type: application/json
 
 {
-    "name":"Sams",
-    "email":"kyle@gmail.com",
-    "password":"Pass1",
-    "adminkey":"admina"
+    "name":"jj",
+    "email":"john@gmail.com",
+    "password":"pass3"
 }
 ###
 ## 2. Log In
@@ -14,8 +13,8 @@ POST http://localhost:8085/login
 Content-Type: application/json
 
 {
-    "email":"sam@gmail.com",
-    "password":"Pass1"
+    "email":"John@gmail.com",
+    "password":"pass3"
 }
 ###
 ## 3. Log Out
