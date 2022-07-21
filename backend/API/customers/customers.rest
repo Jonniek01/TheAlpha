@@ -4,8 +4,8 @@ Content-Type: application/json
 
 {
     "name":"John",
-    "email":"kk@gmail.com",
-    "password":"Passo",
+    "email":"john@gmail.com",
+    "password":"Password",
     "phone":"+25411",
     "location":"Kenol"
 }
@@ -15,7 +15,7 @@ POST http://localhost:8082/login
 Content-Type: application/json
 
 {
-    "email":"johny@gmail.com",
+    "email":"john@gmail.com",
     "password":"Password"
 }
 ###
@@ -36,6 +36,8 @@ Content-Type: application/json
 ###
 ## 5. get customer by id
 GET http://localhost:8082/id/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiIsImVtYWlsIjoiam9obkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQwOCRpMjdHcm0wWnFBVnFkMWlDS2h2aUouVDljY3Jxb1A4MXE0b0dCUW50TXQxQ0hNOURWWjdaZSIsInBob25lIjoiKzI1NDExIiwibG9jYXRpb24iOiJLZW5vbCIsImlhdCI6MTY1ODQwODQ4OSwiZXhwIjoxNjU4NDUxNjg5fQ.w1uZuzqvfLUJ1-KMtXHdMEatxf26a9tic_bZ_PMgsuo
+
 ###
 ## 6. get all customers
 GET http://localhost:8082/all
