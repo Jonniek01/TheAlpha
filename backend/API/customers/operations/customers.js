@@ -1,5 +1,7 @@
 const poolPromise = require('../config/poolPromise');
 const bcrypt = require('bcrypt');
+// const jwt = require('jsonwebtoken');
+
 
 /* logCustomer,logout not working*/
 const createCustomer= async (params)=> {
@@ -27,44 +29,43 @@ const createCustomer= async (params)=> {
 };
 
 
-const logCustomer= async (params)=> {
-  const {email, password}= params;
-  const query=`EXEC login '${email}'`;
-  const pool = await poolPromise();
-  const queryresult = pool.query(query).then((result)=>{
-    if (result.recordset.length===0) {
-      return {
-        success: false,
-        error: 'user does not exist',
-      };
-    }
-    return {
-      success: true,
-      data: result.recordset[0],
-    };
-  })
-      .catch((err)=>{
-        return {
-          success: false,
-          error: err.message,
-        };
-      });
-  const data= await queryresult;
-  const dbPass =await pass(password, data.data.password);
-  console.log('progressing', dbPass);
-
-  if (data.success) {
-    const dbPass =await bcrypt.compare(password, data.data.password);
-    console.log('progressing', dbPass);
-
-    return {
-      success: true,
-      data: data,
-    };
-  }
-  console.log(data);
-  return (data);
-};
+// const logCustomer= async (params)=> {
+//   const {email, password}= params;
+//   const query=`EXEC login '${email}'`;
+//   const pool = await poolPromise();
+//   const queryresult = pool.query(query).then((result)=>{
+//     if (result.recordset.length===0) {
+//       return {
+//         success: false,
+//         error: 'user does not exist',
+//       };
+//     }
+//     return {
+//       success: true,
+//       data: result.recordset[0],
+//     };
+//   })
+//       .catch((err)=>{
+//         return {
+//           success: false,
+//           error: err.message,
+//         };
+//       });
+//   const data= await queryresult.then(async (result)=>{
+//     const dbPass =await pass(password, result.data.password);
+//     if (dbPass) {
+//       const token = jwt.sign({email: result.data.email}, process.env.JWTKEY, {
+//         expiresIn: '12h',
+//       });
+//       result.token=token;
+//       return {
+//         success: true,
+//         data: result,
+//       };
+//     }
+//   });
+//   return (data);
+// };
 const logout = async (params) =>{
   const {id} = params;
   const query=`EXEC productbyid ${id}`;
@@ -165,7 +166,7 @@ const pass= async (pas, hash)=>{
 
 module.exports = {
   createCustomer,
-  logCustomer,
+  // logCustomer,
   logout,
   updatecustomer,
   readcustomer,

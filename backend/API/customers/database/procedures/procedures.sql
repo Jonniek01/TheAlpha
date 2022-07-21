@@ -3,11 +3,11 @@ SELECT * FROM customers;
 /* 1. creating customer*/
 CREATE OR ALTER PROCEDURE 
 createcustomer
-    @name VARCHAR (50) ,
-    @email VARCHAR(50),
-    @password VARCHAR(50) ,
-    @phone VARCHAR(50) ,
-    @location VARCHAR(50) 
+    @name VARCHAR (MAX) ,
+    @email VARCHAR(MAX),
+    @password VARCHAR(MAX) ,
+    @phone VARCHAR(MAX) ,
+    @location VARCHAR(MAX) 
 AS
 INSERT INTO customers
 (name, email, password, phone, location)
@@ -19,7 +19,7 @@ EXEC createcustomer 'Fred', 'fred@gmail.com','pass2','+2541234567','Nakuru'
 /* 2. Loging in*/
 CREATE OR ALTER PROCEDURE 
 login
-    @email VARCHAR(50)
+    @email VARCHAR(MAX)
 AS
 SELECT
 name, email, password, phone, location
@@ -35,11 +35,11 @@ EXEC login  'fred@gmail.com';
 CREATE OR ALTER PROCEDURE 
 updatecustomer
 @id INT,
-    @name VARCHAR (50) ,
-    @email VARCHAR(50),
-    @password VARCHAR(50) ,
-    @phone VARCHAR(50) ,
-    @location VARCHAR(50) 
+    @name VARCHAR (MAX) ,
+    @email VARCHAR(MAX),
+    @password VARCHAR(MAX) ,
+    @phone VARCHAR(MAX) ,
+    @location VARCHAR(MAX) 
 AS
 UPDATE customers
 SET

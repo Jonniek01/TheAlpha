@@ -2,11 +2,11 @@
 
  create TABLE customers(
      id int NOT NULL PRIMARY KEY IDENTITY(1,1),
-     name VARCHAR (50) NOT NULL,
-     email VARCHAR(50) NOT NULL,
-     password VARCHAR(50) NOT NULL,
-     phone VARCHAR(50) NOT NULL,
-     location VARCHAR(50) NOT NULL,
+     name VARCHAR (MAX) NOT NULL,
+     email VARCHAR(MAX) NOT NULL UNIQUE,
+     password VARCHAR(MAX) NOT NULL,
+     phone VARCHAR(MAX) NOT NULL,
+     location VARCHAR(MAX) NOT NULL,
      deleted BIT DEFAULT 0
  )
 
