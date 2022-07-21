@@ -1,5 +1,6 @@
 import React from 'react'
 import StarRatings from 'react-star-ratings'
+import {Link} from 'react-router-dom'
 const  ProductCard =(props) => {
   
   return (
@@ -19,7 +20,14 @@ const  ProductCard =(props) => {
           />
         <div className="price">
           <h5>{props.product.price}</h5>
-          <button className='add-button'>Add to Cart</button>
+          <button className='add-button' onClick={ () => {
+            const navigate = () =>{
+              const anchor = document.createElement('a');
+              anchor.href = 'DetailRoute';
+              anchor.click();
+            }
+            navigate();
+          }}>Add to Cart</button>
         </div>
       </div>
 
