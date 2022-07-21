@@ -1,0 +1,23 @@
+.bar{
+    height: 38%;
+    width: 90%;
+    background-color: rgba(32, 30, 30, 0.973);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.bar .count{
+    font-size: 120%;
+    font-weight: bolder;
+}
+.bar h3{
+    font-size: 120%;
+    word-wrap: normal;
+}
+.bar:hover{
+    cursor: pointer;
+    background-color: #CFEF66;
+    color: #000;
+}
+

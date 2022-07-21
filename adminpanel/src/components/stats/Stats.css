@@ -1,26 +1,30 @@
 .stats{
     display: flex;
+    gap: 2px;
     margin: 1%;
     border-radius: 10px;
-    background-color: rgba(32, 30, 30, 0.973);
 
 
 }
 .stat_one, .stat_two {
     width: 50%;
     padding: 0%;
+    background-color: rgba(32, 30, 30, 0.973);
+
+
 
 
 }
 .stat_one{
-    border-right: 0.1px solid wheat;
+    border-radius: 10px 0 0 10px;
 
 }
 .stat_two{
-    border-left: 0.1px solid wheat;
-    /* background-color: aqua; */
+    border-radius: 0 10px 10px 0;
 
-}
+
+ } 
+
 
  .stat_one:hover{
     cursor: pointer;

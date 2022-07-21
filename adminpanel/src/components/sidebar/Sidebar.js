@@ -18,10 +18,10 @@ function Sidebar() {
 
       </div>
       <div className="middle">
-        <Link className='link' to=''><SiSimpleanalytics className='icon'/><span>Overview</span></Link>
-        <Link className='link'  to=''><BsFillHandbagFill className='icon'/><span>Products</span></Link>
-        <Link className='link'  to=''><BsPeopleFill className='icon'/><span>Customers</span></Link>
-        <Link className='link'  to=''><BiBookAlt className='icon'/><span>Orders</span></Link>
+        <Link className='link' to='/'><SiSimpleanalytics className='icon'/><span>Overview</span></Link>
+        <Link className='link'  to='products'><BsFillHandbagFill className='icon'/><span>Products</span></Link>
+        <Link className='link'  to='customers'><BsPeopleFill className='icon'/><span>Customers</span></Link>
+        <Link className='link'  to='orders'><BiBookAlt className='icon'/><span>Orders</span></Link>
 
         
       </div>
