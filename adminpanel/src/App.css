@@ -14,6 +14,8 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(6,1fr);
+  grid-template-rows: repeat(11,1fr);
+
   grid-template-areas:
   "two one one one one one"
   "two three three three three three"
@@ -25,12 +27,14 @@
   "two four four four four five"
   "two four four four four five"
   "two four four four four five"
+  "two four four four four five"
+
+
   ;
   
 }
 .header{
   grid-area: one;
-  background-color: blue;
 }
 .side_bar{
   grid-area: two;
