@@ -3,9 +3,9 @@ POST http://localhost:8082/signup
 Content-Type: application/json
 
 {
-    "name":"ely",
-    "email":"ely@gmail.com",
-    "password":"Pass2",
+    "name":"John",
+    "email":"kk@gmail.com",
+    "password":"Passo",
     "phone":"+25411",
     "location":"Kenol"
 }
@@ -15,8 +15,8 @@ POST http://localhost:8082/login
 Content-Type: application/json
 
 {
-    "email":"ely@gmail.com",
-    "password":"Pass2"
+    "email":"johny@gmail.com",
+    "password":"Password"
 }
 ###
 ## 3. Log Out
