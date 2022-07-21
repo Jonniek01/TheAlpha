@@ -48,7 +48,7 @@ module.exports = {
           (resp)=>{
             if (resp) {
               const token =
-              jwt.sign(user, process.env.JWTKEY, {
+              jwt.sign(user, process.env.CSTMJWTKEY, {
                 expiresIn: '12h',
               });
               res.json(
