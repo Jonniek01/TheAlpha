@@ -1,4 +1,6 @@
 /* eslint-disable new-cap */
+const adminAuth = require('../middlewares/adminAuth');
+
 const express = require('express');
 const {
   getProducts,
@@ -43,7 +45,7 @@ TO COMMUNICATE TO admins MICROSERVICE and verify
 */
 /*  CREATING PRODUCTS*/
 
-products.post('/post',
+products.post('/post', adminAuth,
     postProduct);
 /*
      name VARCHAR (50) NOT NULL,
@@ -54,7 +56,7 @@ products.post('/post',
 */
 
 /* UPDATING PRODUCTS*/
-products.patch('/:id',
+products.patch('/:id', adminAuth,
     patchProduct);
 /*
      name VARCHAR (50) NOT NULL,
@@ -65,7 +67,8 @@ products.patch('/:id',
 */
 
 /* DELETING PRODUCTS*/
-products.patch('/del/:id', deleteProduct);
+products.patch('/del/:id', adminAuth,
+    deleteProduct);
 /*
 deleted: BIT
 */
