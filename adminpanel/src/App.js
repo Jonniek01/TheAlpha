@@ -1,25 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Sidebar from './components/sidebar/Sidebar'
+import Header from './components/header/Header'
+import Stats from './components/stats/Stats'
+import RightBar from './components/rightbar/RightBar'
+import Content from './components/content/Content'
+import Login from './components/Login';
+import SignUp from './components/SignUp';
+import { Route, Routes } from 'react-router-dom';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const logged=true;
+  if(logged){
+    return (
+      <div className="App">
+        <div className='container'>
+          <Sidebar/>
+          <Header/>
+          <Stats />
+          <RightBar />
+          <Content/>
+  
+  
+         </div>
+      </div>
+    );
+  
+  }
+  return(
+    <Routes>
+    <Route path='/' element={<Login/>}></Route>
+    <Route path='/login' element={<Login/>}></Route>
+    <Route path='/sign' element={<SignUp/>}></Route>
+
+    </Routes>
+    
+  )
+
+  
 }
 
 export default App;

@@ -1,0 +1,29 @@
+.header{
+    display: flex;
+    
+}
+.header .left{
+    width: 70%;
+    height: 100%;
+    vertical-align: top;
+    padding-left: 3%;
+
+}
+.header .right{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.right .account{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+.account .avatar{
+    font-size: 180%;
+    background-color: white;
+    border-radius: 50%;
+}

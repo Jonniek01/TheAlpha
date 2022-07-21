@@ -1,38 +1,54 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
+.container{
+  margin-top: 3%;
+  height: 97%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  grid-template-rows: repeat(11,1fr);
 
-.App-link {
-  color: #61dafb;
+  grid-template-areas:
+  "two one one one one one"
+  "two three three three three three"
+  "two three three three three three"
+  "two four four four four five"
+  "two four four four four five"
+  "two four four four four five"
+  "two four four four four five"
+  "two four four four four five"
+  "two four four four four five"
+  "two four four four four five"
+  "two four four four four five"
+
+
+  ;
+  
 }
+.header{
+  grid-area: one;
+}
+.side_bar{
+  grid-area: two;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.stats{
+  grid-area: three;
+
+}
+.content{
+  grid-area: four;
+
+}
+.right_bar{
+  grid-area: five;
+
 }
