@@ -1,5 +1,7 @@
 /* eslint-disable new-cap */
 const express = require('express');
+const adminAuth = require('../middlewares/adminAuth');
+
 
 const {signUp,
   logIn,
@@ -37,7 +39,7 @@ admins.patch('/logout',
 /* 4.  update account*/
 
 // Require to be logged in
-admins.patch('/update/:id',
+admins.patch('/update/:id', adminAuth,
     update);
 /*
     id int NOT NULL PRIMARY KEY,
@@ -49,18 +51,18 @@ admins.patch('/update/:id',
 */
 /* 5. Get customer by id*/
 
-admins.get('/id/:id',
+admins.get('/id/:id', adminAuth,
     getAdmin);
 
 /* 6. Get all admins*/
 // Require admin
-admins.get('/all',
+admins.get('/all', adminAuth,
     getAdmins);
 
 /* 7. Deleting a customer*/
 // Require to be logged in
 
-admins.patch('/delete/:id',
+admins.patch('/delete/:id', adminAuth,
     deleter);
 /*
      email VARCHAR(50) NOT NULL,

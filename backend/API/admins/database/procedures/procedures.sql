@@ -1,11 +1,12 @@
 USE Admins;
 SELECT * FROM admins;
+go
 /* 1. creating admin*/
 CREATE OR ALTER PROCEDURE 
 createadmin
-    @username VARCHAR (50) ,
-    @email VARCHAR (50),
-    @password VARCHAR(50) 
+    @username VARCHAR (MAX) ,
+    @email VARCHAR (MAX),
+    @password VARCHAR(MAX) 
 AS
 INSERT INTO admins
 (username, email, password)
@@ -17,7 +18,7 @@ EXEC createadmin 'Fred', 'fred@gmail.com', 'pass1'
 /* 2. Loging in*/
 CREATE OR ALTER PROCEDURE 
 login
-    @email VARCHAR (50)
+    @email VARCHAR (MAX)
 AS
 SELECT
 username, email, password
