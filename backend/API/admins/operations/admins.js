@@ -83,7 +83,7 @@ const updateadmin= async (reqparams, reqbody) =>{
   const {name, email, password}= reqbody;
   const hashedPass = await bcrypt.hash(password, 8);
 
-  const query=`EXEC updateadmin${id},
+  const query=`EXEC updateadmin ${id},
   '${name}','${email}','${hashedPass}'`;
   const pool = await poolPromise();
   const data = pool.query(query).then((result)=>{
