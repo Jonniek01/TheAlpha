@@ -12,9 +12,15 @@ const customerAuth = (req, res, next) => {
     req.user = decoded;
     next();
   } catch (error) {
-    return res.status(403).json({
-      message: 'Access denied, token invalid',
-    });
+    try {
+      const decoded = jwt.verify(token, process.env.ADMNJWTKEY);
+      req.user = decoded;
+      next();
+    } catch {
+      return res.status(403).json({
+        message: 'Access denied, token invalid',
+      });
+    }
   }
 };
 
