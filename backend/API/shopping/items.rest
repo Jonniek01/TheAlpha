@@ -1,5 +1,6 @@
 ##Get all items
 GET http://localhost:8083/items
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QyIiwiZW1haWwiOiJ0ZXN0MkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCR0Ry5qMTdSeGRRS040R1hXVEZkajZ1U2NqbHJEeExGeXE0UVM3Ny9aWS55VDNQNmNvSHp4YSIsImlhdCI6MTY1ODQ2ODQ1NiwiZXhwIjoxNjU4NTExNjU2fQ.p28MZEz5BY3voE3PJvcRlmdJxfbNVQbgRssC9VmSnWo
 ###
 
 ##Create item
@@ -16,7 +17,7 @@ Content-Type: application/json
 
 ##Get item by  Id
 GET http://localhost:8083/items/1
-###
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiIsImVtYWlsIjoiam9obkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQwOCR4Uy5jWVQxL3U0TFpSTWJZbEZBcEd1eE1NMHo0Lm1TMkJiQ1VvZVJpUlhkdHRDMG42UzlVNiIsInBob25lIjoiKzI1NDExIiwibG9jYXRpb24iOiJLZW5vbCIsImlhdCI6MTY1ODQ3MDIxNCwiZXhwIjoxNjU4NTEzNDE0fQ.6IarI8S-elXZPK2dG7kN4VujEtmpmC157SW_JvpIwaM
 
 ##Get item by  Uid
 GET http://localhost:8083/items/user/10
