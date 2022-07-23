@@ -1,0 +1,7 @@
+.customers_bar{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid white;
+}

@@ -9,8 +9,8 @@
   left: 0;
 }
 .container{
-  margin-top: 3%;
-  height: 97%;
+  margin-top: 1.5%;
+  height: 98.5%;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(6,1fr);

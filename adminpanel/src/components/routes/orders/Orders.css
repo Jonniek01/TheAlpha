@@ -1,0 +1,26 @@
+.orders{
+    width: 100%;
+    height: 100%;
+}
+.orders .head{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.orders  select{
+    height: 20px;
+    width: 40px;
+    border: none;
+}
+.overview_bar{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid white;
+}
+.orders .contain{
+    overflow-y: scroll ;
+    scrollbar-width: none;
+    
+}
