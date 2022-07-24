@@ -4,8 +4,8 @@ import Header from './components/header/Header'
 import Stats from './components/stats/Stats'
 import RightBar from './components/rightbar/RightBar'
 import Content from './components/content/Content'
-import Login from './components/Login';
-import SignUp from './components/SignUp';
+import Login from './components/login/Login';
+import SignUp from './components/signup/SignUp';
 import { Route, Routes } from 'react-router-dom';
 function App() {
   const logged=true;

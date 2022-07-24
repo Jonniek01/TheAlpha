@@ -1,15 +1,16 @@
 import React from 'react'
 import './Card.css'
 
-function Card() {
+function Card({customer}) {
   return (
     <div className='customers_bar'>
-    <p className="id">Id</p>
-   <p className="customer">name</p>
-    <p className="count">Price</p> 
-    <p className="total">Description</p>
-    <p className="date">available</p>
+    <p className="id">{customer.id}</p>
+   <p className="name">{customer.name}</p>
+    <p className="email">{customer.email}</p> 
+    <p className="phone">{customer.phone}</p>
+    <p className="location">{customer.location}</p>
+
     </div>
- )}
+)}
 
 export default Card

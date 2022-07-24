@@ -19,9 +19,9 @@ const readorders = async () =>{
   return (data);
 };
 const createorder = async (params) =>{
-  const {customer_id, items, items_count, total} = params;
+  const {customer_id, customer_name, items, items_count, total} = params;
   const query=`EXEC createorder
-  ${customer_id}, ${items},${items_count},${total} `;
+  ${customer_id}, ${customer_name} ,${items},${items_count},${total} `;
   const pool = await poolPromise();
   const data = pool.query(query).then((result)=>{
     return {
