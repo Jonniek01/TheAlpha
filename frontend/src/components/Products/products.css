@@ -1,8 +1,8 @@
 .products{
     display: flex;
     flex-wrap: wrap;
-    border: solid black;
-    gap: 2rem;
+    gap: 4rem;
+    justify-content: center;
 }
 .image img{
     width: fit-content;
@@ -10,25 +10,24 @@
     border-radius: 5px;
 }
 .product-card{
-    padding: 0.5rem;
     display: flex;
+    align-items: center;
     width: 300px;
     flex-direction: column;
     gap:0.5rem;
     border-radius:5px;
-    box-shadow: 0px 2px 2px white;
 }
 .product-card:hover{
-    border-left: solid white;
-    box-shadow: 2px 4px 6px grey;
+    box-shadow: 2px 2px 2px 2px grey;
 }.content{
     display: flex;
+    align-items: center;
     flex-direction: column;
-    gap:0.5rem;
 }
 .add-button{
-    width: 50%;
-    background-color: white;
-    color: black;
-    border-radius: 10px;
+    display: none;
+    width: 150px;
+    background-color:blue;
+    color: white;
+    border-radius: 5px;
 }

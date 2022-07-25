@@ -4,7 +4,7 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter,Routes, Route } from "react-router-dom";
-import DetailRoute from './components/Products/DetailRoute'
+import DetailRoute from './components/Products/productDetail'
 import store from './redux/store/productStore';
 import { Provider } from 'react-redux';
 
