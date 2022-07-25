@@ -1,12 +1,12 @@
+import React from  "react";
 import Carousel from 'react-bootstrap/Carousel';
-import React from "react";
-import './carusel.css';
 
-function carousel() {
+function Carousels() {
+ 
   return (
     <div className='carousel'>
-    <Carousel>
-      <Carousel.Item interval={3}>
+    <Carousel fade interval={1000}>
+      <Carousel.Item>
         <img
           className="d-block w-100"
           src="https://raw.githubusercontent.com/owaisibrahim099/react-carousel/master/src/assets/images/2.jpg"
@@ -23,7 +23,6 @@ function carousel() {
           src="https://raw.githubusercontent.com/owaisibrahim099/react-carousel/master/src/assets/images/2.jpg"
           alt="Second slide"
         />
-
         <Carousel.Caption>
           <h3>Second slide label</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -35,7 +34,6 @@ function carousel() {
           src="https://raw.githubusercontent.com/owaisibrahim099/react-carousel/master/src/assets/images/2.jpg"
           alt="Third slide"
         />
-
         <Carousel.Caption>
           <h3>Third slide label</h3>
           <p>
@@ -48,4 +46,4 @@ function carousel() {
   );
 }
 
-export default carousel;
+export default Carousels;

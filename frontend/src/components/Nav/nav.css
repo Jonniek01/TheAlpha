@@ -16,10 +16,12 @@
 .search-bar{
     display: flex
 }
-.search-bar  input{
-    height: 2.6rem;
+.search-bar input{
+    height: 3rem;
     width: 30rem;
     background-color: white;
+    border-left:none ;
+    border-right: none;
 }.Categories{
     width: 10rem;
     height: 3rem;
