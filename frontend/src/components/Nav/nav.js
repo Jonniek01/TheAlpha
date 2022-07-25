@@ -3,6 +3,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaShoppingCart, FaUserAlt } from "react-icons/fa";
 import { BsSearch } from "react-icons/bs";
 import "./nav.css";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
@@ -22,7 +23,9 @@ const Nav = () => {
           </button>
         </div>
         <div className="nav-icons">
-          <FaShoppingCart />
+          <Link to={`/cart`}>
+          <FaShoppingCart/>
+          </Link>
           <FaUserAlt />
         </div>
       </div>

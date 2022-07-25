@@ -1,6 +1,6 @@
 *{
-    background-color: black;
-    color: white;
+    /* background-color: black; */
+    /* color: white; */
 }
 .detail{
     align-items: center;
@@ -15,6 +15,8 @@
 }
 .productImage img{ 
  border-radius: 10px;
+ width: 400px;
+ height: 400px;
 }
 .productImage{
     display: flex;

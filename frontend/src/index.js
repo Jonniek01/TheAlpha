@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter,Routes, Route } from "react-router-dom";
+import Cart from './components/Nav/Cart/cart'
 import DetailRoute from './components/Products/productDetail'
 import store from './redux/store/productStore';
 import { Provider } from 'react-redux';
@@ -17,6 +19,8 @@ root.render(
     <Routes>
     <Route path="/" element={<App />} />
     <Route path="/:productId" element={<DetailRoute/>} />
+    <Route path="/cart" element={<Cart/>} />
+    {/* <Route path="/" element={<DetailRoute/>} /> */}
     </Routes>
   </React.StrictMode>
   </BrowserRouter>

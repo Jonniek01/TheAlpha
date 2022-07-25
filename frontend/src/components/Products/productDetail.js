@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./productDetail.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import Nav from "../Nav/nav";
 import Footer from "../Footer/footer";
 import { IoCartOutline } from "react-icons/io5";
 import { useParams } from "react-router";
+import {
+	addToCart,
+	addItemQuantity,
+	minusItemQuantity,
+	removeFromCart,
+} from "../../redux/Slices/cartReducer";
 
 function DetailRoute() {
   const { productId } = useParams();
@@ -21,6 +27,26 @@ function DetailRoute() {
         setDetail(res.data);
       });
   }, []);
+
+  const { cart, favorites } = useSelector((state) => state.cart);
+
+	const cartItem = cart?.find((item) => item.id === detail.id);
+
+	const removeItems = () => {
+		if (cartItem?.quantity > 1) {
+			dispatch(minusItemQuantity(detail.id));
+		} else {
+			dispatch(removeFromCart(detail.id));
+		}
+	};
+
+	const addItems = () => {
+		if (cartItem) {
+			dispatch(addItemQuantity(detail.id));
+		} else {
+			dispatch(addToCart(detail));
+		}
+	};
 
   return (
     <div>
@@ -43,10 +69,11 @@ function DetailRoute() {
                   Price:{detail.price}
                 </p>
               <div className="add-buttons">
-                <button>
+                <button onClick={addItems}>
                   <IoCartOutline/>
                   Add to cart
                 </button>
+                <button className="counter"></button>
               </div>
               </div>
           </div>
