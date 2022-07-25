@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import axios from 'axios';
-import '../../css/products.css'
+import './products.css'
 import ProductCard from './product/product'
 import { useSelector, useDispatch } from 'react-redux';
 import { changeProduct } from '../../redux/Slices/productSlice'
@@ -26,9 +26,7 @@ return(
       <h2>All Products</h2>
       <div className='products'>
 {
-  products.map((product)=>{
-    return <ProductCard key={product.id} product ={product}/>
-})
+  products?products.map((product)=>(< ProductCard key={product.id} product={product}/>)):"LOADING..."
 }
       </div>
     </div>

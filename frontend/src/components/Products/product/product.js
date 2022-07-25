@@ -1,10 +1,12 @@
-import React from 'react'
 import StarRatings from 'react-star-ratings'
 import {Link} from 'react-router-dom'
+
+
 const  ProductCard =(props) => {
-  
+
   return (
     <div key={props.product.id} className='product-card'>
+      <Link to={`/${props.product.id}`}>
       <div className="image"> 
       <img src={props.product.image} alt =""/>
       
@@ -23,14 +25,14 @@ const  ProductCard =(props) => {
           <button className='add-button' onClick={ () => {
             const navigate = () =>{
               const anchor = document.createElement('a');
-              anchor.href = 'DetailRoute';
+              anchor.href = `${props.product.id}`;
               anchor.click();
             }
             navigate();
           }}>Add to Cart</button>
         </div>
       </div>
-
+      </Link>
     </div>
   )
 }
