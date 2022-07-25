@@ -1,6 +1,6 @@
 import './App.css';
 import Nav from './components/Nav/nav'
-import Carousel from './carousel/carousel'
+import Carousels from './carousel/carousel'
 import Products from './components/Products/products'
 import Footer from './components/Footer/footer'
 import { Outlet } from 'react-router-dom';
@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <Nav/>
-     <Carousel slides={slides}/>
+     <Carousels/>
      <Products />
      <Outlet/>
      <Footer/>
