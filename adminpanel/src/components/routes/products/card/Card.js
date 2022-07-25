@@ -1,15 +1,15 @@
 import React from 'react'
 import './Card.css'
 
-function Card() {
+function Card({product}) {
   return (
     <div className='products_bar'>
-    <p className="id">Id</p>
-   <p className="customer">name</p>
-    <p className="count">Price</p> 
-    <p className="total">Description</p>
-    <p className="date">available</p>
+    <p className="id">{product.id}</p>
+   <p className="name">{product.name}</p>
+    <p className="price">{product.price}</p> 
+    <p className="description">{product.description}</p>
+    <p className="available"></p>
     </div>
  )}
 
-export default Card
+export default Card;

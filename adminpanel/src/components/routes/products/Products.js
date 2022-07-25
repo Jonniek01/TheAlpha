@@ -5,15 +5,18 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 function Products() {
-  let page, order, limit;
+  let page = 1;
+  let order='asc';
+  let by='price';
+  let limit=10;0
  const [error, setError]= useState('Loading Products');
 
   const [products, setProducts] = useState([]);
   useEffect(
     ()=>{
-      axios.get(`http://localhost:8081/pg/${page}/price/${order}/${limit}`).then(
+      axios.get(`http://localhost:8081/pg/${page}/${price}/${order}/${limit}`).then(
         res=>{
-          setProducts(res);
+          setProducts(res.data.products);
         }
       ).catch(err=>{
         setError("Internet Error")
@@ -64,8 +67,8 @@ function Products() {
             
       products.length>0?
             
-      products.map((order)=>{
-             return <Card key={order.id} order={order}/>
+      products.map((product)=>{
+             return <Card key={product.id} product={product}/>
             })
             :
             <div style={{color:'green'}}>{error}</div>

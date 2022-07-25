@@ -20,7 +20,7 @@
     text-align: center;
 }
 .customers .contain{
-    overflow-y: scroll ;
-    scrollbar-width: none;
+    height:270px;
+    overflow-y:scroll !important;
     
 }

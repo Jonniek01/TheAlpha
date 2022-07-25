@@ -5,21 +5,29 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 function Overview() {
- const limit=5
- const [error, setError]= useState('Loading orders');
-
-  const [orders, setOrders] = useState([]);
-  useEffect(
-    ()=>{
-      axios.get(`http://localhost:8083/orders/recent/:${limit}`).then(
-        res=>{
-          setOrders(res);
-        }
-      ).catch(err=>{
-        setError("Internet Error")
-      })
-    });
-  return (
+  let token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QyIiwiZW1haWwiOiJ0ZXN0MkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCR0Ry5qMTdSeGRRS040R1hXVEZkajZ1U2NqbHJEeExGeXE0UVM3Ny9aWS55VDNQNmNvSHp4YSIsImlhdCI6MTY1ODY0Mjk1MSwiZXhwIjoxNjU4Njg2MTUxfQ.XG8R4JMjW5buuSzgpUmavZIZh6QdThEhTc6Vqnkk6AM'
+  let config = {
+    headers: {
+      Authorization: token,
+    }
+  }
+  let url=`http://localhost:8083/orders/recent/10`
+  
+   const [error, setError]= useState('Loading recent orders');
+  
+    const [orders, setOrders] = useState([]);
+    useEffect(
+      ()=>{
+        axios.get(url, config).then(
+          res=>{
+            // console.log(res.data.body)
+            setOrders(res.data.body);
+          }
+        ).catch(err=>{
+          console.log(err)
+          setError("Internet Error")
+        })
+      });  return (
     <div className='overview'>
       <div className="head">
         <h2>Recent orders</h2>
