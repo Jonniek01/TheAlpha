@@ -8,15 +8,14 @@ import { changeProduct } from '../../redux/Slices/productSlice'
 const  Products =() => {
   const products =useSelector((state) =>state.products)
   const dispatch =useDispatch();
-  const productDetail = axios.get (`https://my-json-server.typicode.com/felista47/json-server/products`);
+  const productDetail = axios.get (`http://localhost:8081/all/price/asc`);
 
-
+console.log(products)
   useEffect(()=>{
     dispatch(changeProduct([]));
 
     productDetail.then((res) =>{
-      dispatch(changeProduct(res.data))
-      console.log (res.data)
+      dispatch(changeProduct(res.data.products))
     })
   },[])
 

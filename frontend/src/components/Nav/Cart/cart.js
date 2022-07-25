@@ -15,7 +15,7 @@ function Cart() {
     <div>
       <Nav />
       <div className="cart-container">
-        <div className="content">
+        <div className="content-cards">
           <div className="head">
             <h2 className="heading">Shopping Cart</h2>
             <span className="count">
@@ -29,15 +29,13 @@ function Cart() {
             {cart.map((item) => {
               return <CartProduct product={item} key={item.id} />;
             })}
-            <Link to="/" className="home-link">
+          </div>
+        </div>
+        <Link to="/" className="home-link">
               <BsArrowLeft />
               Continue Shopping
             </Link>
-          </div>
-        </div>
-
         <div id="summary" className="order">
-          <h4>Order Summary</h4>
           <div className="Amount">
             <span className="total">Total Number of Items:</span>
             <span className="count">
