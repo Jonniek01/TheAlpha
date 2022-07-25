@@ -1,0 +1,26 @@
+.products{
+    width: 100%;
+    height: 100%;
+}
+.products .head{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.products  select{
+    height: 20px;
+    width: 40px;
+    border: none;
+}
+.products_bar{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid white;
+}
+.products .contain{
+    height:270px;
+    overflow-y:scroll !important;
+    
+}

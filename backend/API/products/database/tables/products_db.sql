@@ -7,8 +7,8 @@
      image VARCHAR(255) NOT NULL,
      description VARCHAR(255) NOT NULL,
      category VARCHAR(50) NOT NULL,
+     available BIT DEFAULT 1,
      deleted BIT DEFAULT 0
-
  )
 
 
@@ -18,9 +18,9 @@
 INSERT INTO products (name, price, image, description, category)
 VALUES('Ancle socks', 5120.20, 'http://image/url.com','beautiful socks','outdoor'),
 
-VALUES('jeans', 200.50, 'http://image/url.com','beautiful jeans','official'),
+('jeans', 200.50, 'http://image/url.com','beautiful jeans','official'),
 
-VALUES('Snickers', 4120.20, 'http://image/url.com','beautiful snickers','outdoor'),
+('Snickers', 4120.20, 'http://image/url.com','beautiful snickers','outdoor')
 
 
-SELECT * FROM PRODUCTS
+SELECT * FROM products

@@ -14,6 +14,7 @@ USE Shopping
 CREATE TABLE orders(
 id int NOT NULL PRIMARY KEY IDENTITY(1, 1),
 customer_id int NOT NULL,
+customer_name VARCHAR(255),
 items VARCHAR(255) NOT NULL,
 items_count INT,
 total FLOAT,

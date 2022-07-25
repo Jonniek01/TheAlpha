@@ -9,6 +9,7 @@ const {getOrders,
   getOrdersUid,
   updateOrder,
   clearOrder,
+  recentOrders,
 
 } = require('../controllers/orders.js');
 const orders = express.Router();
@@ -35,6 +36,9 @@ orders.patch('/:id', customerAuth,
 /* Delete order by id*/
 orders.patch('/cl/:id', customerAuth,
     clearOrder);
+/* Recent orders*/
+orders.get('/recent/:limit', adminAuth,
+    recentOrders);
 
 
 module.exports = {orders};

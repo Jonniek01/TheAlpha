@@ -17,7 +17,7 @@ module.exports = {
         success: true,
         status: 200,
         message: 'success',
-        data: response.data,
+        body: response.data,
       });
       return;
     }
@@ -85,7 +85,7 @@ module.exports = {
         success: true,
         status: 200,
         message: 'success',
-        data: response.data,
+        body: response.data,
       });
       return;
     }
@@ -123,7 +123,7 @@ module.exports = {
         success: true,
         status: 200,
         message: 'success',
-        data: response.data,
+        body: response.data,
       });
       return;
     }
@@ -142,7 +142,7 @@ module.exports = {
         success: true,
         status: 200,
         message: 'success',
-        data: response.data,
+        body: response.data,
       });
       return;
     }
@@ -161,7 +161,7 @@ module.exports = {
         success: true,
         status: 200,
         message: 'success',
-        data: response.data,
+        body: response.data,
       });
       return;
     }

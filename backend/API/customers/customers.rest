@@ -19,9 +19,6 @@ Content-Type: application/json
     "password":"Password"
 }
 ###
-## 3. Log Out
-PATCH http://localhost:8082/logout
-###
 ## 4. Update
 PATCH http://localhost:8082/update/3
 Content-Type: application/json

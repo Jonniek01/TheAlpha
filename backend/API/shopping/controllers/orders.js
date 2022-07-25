@@ -4,6 +4,9 @@ const {readorders,
   getorderuid,
   updateorder,
   clearorder} = require('../operations/orders');
+  /* eslint-disable camelcase */
+const poolPromise = require('../config/poolPromise');
+
 
 module.exports = {
   getOrders: async (req, res) =>{
@@ -14,7 +17,7 @@ module.exports = {
         success: true,
         status: 200,
         message: 'success',
-        products: response.data,
+        body: response.data,
       });
       return;
     }
@@ -33,7 +36,7 @@ module.exports = {
         success: true,
         status: 200,
         message: 'success',
-        products: response.data,
+        body: response.data,
       });
       return;
     }
@@ -53,7 +56,7 @@ module.exports = {
         success: true,
         status: 200,
         message: 'success',
-        products: response.data,
+        body: response.data,
       });
       return;
     }
@@ -73,7 +76,7 @@ module.exports = {
         success: true,
         status: 200,
         message: 'success',
-        products: response.data,
+        body: response.data,
       });
       return;
     }
@@ -93,7 +96,7 @@ module.exports = {
         success: true,
         status: 200,
         message: 'success',
-        products: response.data,
+        body: response.data,
       });
       return;
     }
@@ -112,7 +115,7 @@ module.exports = {
         success: true,
         status: 200,
         message: 'success',
-        products: response.data,
+        body: response.data,
       });
       return;
     }
@@ -122,6 +125,26 @@ module.exports = {
       message: 'Database operation error',
       error: response.error,
     });
+  },
+  recentOrders: async (req, res)=>{
+    const {limit}= req.params;
+    const query=`EXEC recentorders ${limit}`;
+    const pool = await poolPromise();
+    pool.query(query).then((result)=>{
+      res.status(200).send({
+        success: true,
+        status: 200,
+        message: 'success',
+        body: result.recordset});
+    })
+        .catch((err)=>{
+          res.status(502).send({
+            success: false,
+            status: 502,
+            message: 'Database operation error',
+            error: err,
+          });
+        });
   },
 
 
