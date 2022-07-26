@@ -6,7 +6,7 @@ GET http://localhost:8081/all/price/asc
 
 ##/pg/:page/:orderBy/:orderForm/:limit
 ## 2. All products paginated
-GET http://localhost:8081/pg/2/price/asc/1
+GET http://localhost:8081/pg/5/price/asc/1
 
 ###
 ##/category/all/:category/:orderby/:orderform
@@ -16,7 +16,7 @@ GET http://localhost:8081/category/all/official/price/asc
 ###
 ##/category/pg/:category/:page/:orderby/:orderform/:limit
 ##4. products by category paginated
-GET http://localhost:8081/category/pg/outdoor/1/price/asc/1
+GET http://localhost:8081/category/pg/outdoor/1/price/asc/10
 
 ###
 ##/:id
@@ -45,15 +45,16 @@ PATCH http://localhost:8081/del/2
 ##/:post
 ## CREATING PRODUCT
 POST http://localhost:8081/post
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QzIiwiZW1haWwiOiJ0ZXN0M0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCQ1azUzVlFPc1FEeng0VmFPNldhVXRlb0lHcGJxb1FjTVNwalpMWE1ibkpDSjZNZ1haLmQ5eSIsImlhdCI6MTY1ODgwMzUwNCwiZXhwIjoxNjU4ODQ2NzA0fQ.7cLlPmY2qjECiu0rzmDWYl3XeH922QjYPn-yUNOP7Vw
 Content-Type: application/json
 
-{
-    "name":"Shorts",
-    "price":222,
-    "image":"https://url/image",
-    "description":"testing endpoint",
-    "category":"outdoor"
-}
+{ "id" :16,
+    "name":"Tshirt",
+    "description" : "CHAMPION BASIC JERSEY TEE IN ORIGINAL NAVY",
+    "image": " https://cdn.shopify.com/s/files/1/0186/1574/products/KN021051-BL47_2000x.jpg?v=1611104928",
+    "price" : "$40",
+    "category" : "casual"
+    }
 
 ###
 

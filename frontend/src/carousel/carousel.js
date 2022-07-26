@@ -9,7 +9,7 @@ function Carousels() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://raw.githubusercontent.com/owaisibrahim099/react-carousel/master/src/assets/images/2.jpg"
+          src="https://wallpapercave.com/wp/wp3646110.jpg"
           alt="First slide"
         />
         <Carousel.Caption>
@@ -20,7 +20,7 @@ function Carousels() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://raw.githubusercontent.com/owaisibrahim099/react-carousel/master/src/assets/images/2.jpg"
+          src="https://wallpapercave.com/dwp1x/wp3646113.jpg"
           alt="Second slide"
         />
         <Carousel.Caption>
@@ -31,7 +31,7 @@ function Carousels() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://raw.githubusercontent.com/owaisibrahim099/react-carousel/master/src/assets/images/2.jpg"
+          src="https://c0.wallpaperflare.com/preview/10/790/486/grey-and-white-air-jordan-1-s.jpg"
           alt="Third slide"
         />
         <Carousel.Caption>
