@@ -5,7 +5,7 @@ CREATE OR ALTER PROCEDURE
 readorders
 AS
 SELECT
-id, customer_id, items, items_count, order_date, total
+id, customer_name, customer_id, items, items_count, order_date, total
 FROM
 orders
 
@@ -15,17 +15,17 @@ EXEC readorders
 CREATE OR ALTER PROCEDURE 
 createorder
 @cid INT,
+@cname VARCHAR(255),
 @items VARCHAR(255),
 @count INT,
 @total FLOAT
-
 AS
 INSERT INTO orders
-(customer_id, items, items_count, total)
+(customer_id, customer_name, items, items_count, total)
 VALUES
-(@cid, @items, @count, @total)
+(@cid, @cname, @items, @count, @total)
 
-EXEC createorder 2, '[{"name":"jordan","price":5000},{"name":"handbag","price":10000}]' ,2,15000
+EXEC createorder 110, "Peterson", '[{"name":"jordan","price":5000},{"name":"handbag","price":10000}]' ,2,10000
 
 /*ORDER BY ID*/
 CREATE OR ALTER PROCEDURE 
@@ -88,3 +88,18 @@ WHERE
 id=@id
 
 EXEC clearorder 1
+
+/*Recent orders*/
+
+CREATE OR ALTER PROCEDURE 
+recentorders
+@limit INT
+ AS
+ SELECT
+ id, customer_name, customer_id, items, items_count, order_date, total
+     FROM orders
+ ORDER BY order_date ASC
+ OFFSET 0 ROWS
+FETCH NEXT @limit ROWS ONLY
+
+exec recentorders 4

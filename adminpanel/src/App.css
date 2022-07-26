@@ -9,27 +9,27 @@
   left: 0;
 }
 .container{
-  margin-top: 3%;
-  height: 97%;
+  margin-top: 1.5%;
+  height: 98.5%;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(6,1fr);
-  grid-template-rows: repeat(11,1fr);
+  grid-template-rows: repeat(12,1fr);
 
   grid-template-areas:
   "two one one one one one"
   "two three three three three three"
   "two three three three three three"
-  "two four four four four five"
-  "two four four four four five"
-  "two four four four four five"
-  "two four four four four five"
-  "two four four four four five"
-  "two four four four four five"
-  "two four four four four five"
-  "two four four four four five"
+  "two three three three three three"
 
-
+  "two four four four four five"
+  "two four four four four five"
+  "two four four four four five"
+  "two four four four four five"
+  "two four four four four five"
+  "two four four four four five"
+  "two four four four four five"
+  "two four four four four five"
   ;
   
 }
@@ -50,5 +50,10 @@
 }
 .right_bar{
   grid-area: five;
+
+}
+.highlight{
+  color: #CFEF66;
+  font-weight: bolder;
 
 }

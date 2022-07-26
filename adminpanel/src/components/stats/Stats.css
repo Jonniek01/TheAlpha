@@ -9,7 +9,9 @@
 .stat_one, .stat_two {
     width: 50%;
     padding: 0%;
-    background-color: rgba(32, 30, 30, 0.973);
+    background-color: #CFEF66;
+    color: rgb(49, 49, 49);
+    font-weight: bold;
 
 
 
@@ -28,12 +30,10 @@
 
  .stat_one:hover{
     cursor: pointer;
-    background-color: #CFEF66;
-    color: #000;
+    opacity: 0.8;
 }
 .stat_two:hover{
     cursor: pointer;
-    color: #000;
+    opacity: 0.8;
 
-    background-color: #CFEF66;
 }

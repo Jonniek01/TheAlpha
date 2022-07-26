@@ -1,0 +1,28 @@
+.products_bar{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid white;
+    text-align: center;
+}
+.remove{
+    background-color: red;
+    color: white;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    max-height: 30px;
+
+}
+.edit{
+    background-color: #CFEF66;
+    color: black;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    max-height: 30px;
+
+
+
+
+}
