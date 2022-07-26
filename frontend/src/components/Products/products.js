@@ -10,7 +10,6 @@ const  Products =() => {
   const dispatch =useDispatch();
   const productDetail = axios.get (`http://localhost:8081/all/price/asc`);
 
-console.log(products)
   useEffect(()=>{
     dispatch(changeProduct([]));
 

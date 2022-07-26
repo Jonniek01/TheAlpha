@@ -10,14 +10,12 @@ import {
 } from "../../../redux/Slices/cartReducer";
 
 function CartProduct({ product }) {
-  console.log("heloooo cart/");
 
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.cart);
   const { categories } = useSelector((state) => state.product);
 
   const cartItem = cart?.find((item) => item.id === product.id);
-  console.log(cartItem);
   const removeItems = () => {
     if (cartItem.quantity > 1) {
       dispatch(minusItemQuantity(product.id));

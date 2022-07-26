@@ -7,7 +7,9 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter,Routes, Route } from "react-router-dom";
 import Cart from './components/Nav/Cart/cart'
 import DetailRoute from './components/Products/productDetail'
-import Login from './Pages/Login'
+import Signup from './components/Signup/Signup'
+import Login from './components/login/Login'
+
 import store from './redux/store/productStore';
 import { Provider } from 'react-redux';
 
