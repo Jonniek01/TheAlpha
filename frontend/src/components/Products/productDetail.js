@@ -17,14 +17,13 @@ function DetailRoute() {
   const { productId } = useParams();
   const [detail, setDetail] = useState([]);
   const dispatch = useDispatch();
-
   useEffect(() => {
     axios
       .get(
-        `https://my-json-server.typicode.com/felista47/json-server/products/${productId}`
+        `http://localhost:8081/${productId}`
       )
       .then((res) => {
-        setDetail(res.data);
+        setDetail(res.data.products[0]);
       });
   }, []);
 
