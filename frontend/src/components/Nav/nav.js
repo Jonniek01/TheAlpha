@@ -26,7 +26,9 @@ const Nav = () => {
           <Link to={`/cart`}>
           <FaShoppingCart/>
           </Link>
+          <Link to={`/login`}>
           <FaUserAlt />
+          </Link>
         </div>
       </div>
       <div className="nav-bottom">

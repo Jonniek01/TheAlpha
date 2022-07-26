@@ -39,3 +39,15 @@
     display: flex;
     justify-content: space-between;
 }
+.pop_none{
+    display: none;
+}
+.pop_show{
+    display: flex;
+    position: fixed;
+    top: 300px;
+    left: 400px;
+    height: 300px;
+    width: 400px;
+    background-color: #CFEF66;
+}
