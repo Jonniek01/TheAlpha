@@ -1,0 +1,14 @@
+.cart-container{
+    display: flex;
+    flex-direction: column;
+}
+.content{
+    border: solid red;
+    display: flex;
+    /* justify-content: center; */
+}.contents{
+    display: flex;
+}
+.item{
+    display: flex;
+}

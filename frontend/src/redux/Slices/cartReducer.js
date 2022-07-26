@@ -4,7 +4,6 @@ const cartSlice = createSlice({
 	name: "cart",
 	initialState: {
 		cart: [],
-		favorites: [],
 	},
 	reducers: {
 		addToCart: (state, action) => {
@@ -31,13 +30,7 @@ const cartSlice = createSlice({
 		clearCart: (state) => {
 			state.cart = [];
 		},
-		addToFavorite: (state, action) => {
-			state.favorites = [action.payload, ...state.favorites];
-		},
-		removeFromFavorite: (state, action) => {
-			const newItems = state.favorites.filter((item) => item.id !== action.payload);
-			state.favorites = newItems;
-		},
+		
 	},
 });
 

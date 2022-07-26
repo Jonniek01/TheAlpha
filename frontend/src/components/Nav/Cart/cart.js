@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import CartProduct from "./CartProduct";
 import Nav from "../nav";
 import Footer from "../../Footer/footer";
+import './cart.css'
 
 function Cart() {
   const { cart } = useSelector((state) => state.cart);
@@ -26,8 +27,7 @@ function Cart() {
           </div>
           <div className="item">
             {cart.map((item) => {
-              <CartProduct product={item} key={item.id} />;
-
+              return <CartProduct product={item} key={item.id} />;
             })}
             <Link to="/" className="home-link">
               <BsArrowLeft />

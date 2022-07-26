@@ -6,15 +6,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItemQuantity, minusItemQuantity, removeFromCart } from "../../../redux/Slices/cartReducer";
 
 function CartProduct({ product }) {
+	console.log("heloooo cart/");
+
 	const dispatch = useDispatch();
-	console.log(product);
 	const { cart } = useSelector((state) => state.cart);
 	// const { categories } = useSelector((state) => state.product);
 
 	const cartItem = cart?.find((item) => item.id === product.id);
 console.log(cartItem);
 	const removeItems = () => {
-		if (cartItem?.quantity > 1) {
+		if (cartItem.quantity > 1) {
 			dispatch(minusItemQuantity(product.id));
 		} else {
 			dispatch(removeFromCart(product.id));
@@ -30,9 +31,9 @@ console.log(cartItem);
 	};
 	return (
 		<div className="cart-item">
-			<div className="content">
+			<div className="contents">
 				<div className="image">
-					<img src={cartItem.image} alt={cartItem?.name} />
+					<img src={cartItem.image} alt={cartItem.name} />
 
 					<div className="detail">
 						<span>{cartItem.name}</span>
