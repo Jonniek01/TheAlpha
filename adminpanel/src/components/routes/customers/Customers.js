@@ -6,7 +6,7 @@ import axios from 'axios'
 
 function Customers() {
   let page=1;
-  let token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QyIiwiZW1haWwiOiJ0ZXN0MkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCR0Ry5qMTdSeGRRS040R1hXVEZkajZ1U2NqbHJEeExGeXE0UVM3Ny9aWS55VDNQNmNvSHp4YSIsImlhdCI6MTY1ODY0Mjk1MSwiZXhwIjoxNjU4Njg2MTUxfQ.XG8R4JMjW5buuSzgpUmavZIZh6QdThEhTc6Vqnkk6AM'
+  let token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QyIiwiZW1haWwiOiJ0ZXN0MkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCR0Ry5qMTdSeGRRS040R1hXVEZkajZ1U2NqbHJEeExGeXE0UVM3Ny9aWS55VDNQNmNvSHp4YSIsImlhdCI6MTY1ODgxNTQwMCwiZXhwIjoxNjU4ODU4NjAwfQ.rVF-i60v_L9qiaX7qcK73IhLew8lccTJEmXRINsJGZ4'
   let config = {
     headers: {
       Authorization: token,

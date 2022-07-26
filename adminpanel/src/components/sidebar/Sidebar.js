@@ -14,7 +14,7 @@ function Sidebar() {
   return (
     <div className='side_bar'>
       <div className="top">
-        <p className="logo">TheAlpha</p>
+        <p className="logo highlight">TheAlpha</p>
 
       </div>
       <div className="middle">
