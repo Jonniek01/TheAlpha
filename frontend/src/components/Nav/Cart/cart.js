@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import CartProduct from "./CartProduct";
 import Nav from "../nav";
 import Footer from "../../Footer/footer";
-import './cart.css'
+import "./cart.css";
 
 function Cart() {
   const { cart } = useSelector((state) => state.cart);
@@ -31,12 +31,8 @@ function Cart() {
             })}
           </div>
         </div>
-        <Link to="/" className="home-link">
-              <BsArrowLeft />
-              Continue Shopping
-            </Link>
         <div id="summary" className="order">
-          <div className="Amount">
+          <div className="items">
             <span className="total">Total Number of Items:</span>
             <span className="count">
               {cart
@@ -46,26 +42,22 @@ function Cart() {
           </div>
 
           <div className="Totals">
-            <div className="flex font-semibold justify-between py-6 text-sm uppercase">
-              <span>Total cost:</span>
-              <span>
-                {/* <CurrencyFormat
-									value={cart?.reduce((acc, item) => acc + item.price * item.quantity, 0)}
-									displayType={"text"}
-									thousandSeparator={true}
-									prefix={"Ksh"}
-								/> */}
-              </span>
-            </div>
-            <button
-              onClick={() => console.log("checkout")}
-              className="checkout"
-            >
-              Checkout
+            <span>
+              Total cost:
+              {cart?.reduce((acc, item) => acc + item.price * item.quantity, 0)}
+            </span>
+          </div>
+          <div className="checkout">
+            <button className="checkout">
+              <Link to ="/login">MaKe An order</Link>
             </button>
           </div>
         </div>
       </div>
+      <Link to="/" className="home-link">
+        <BsArrowLeft />
+        Continue Shopping
+      </Link>
       <Footer />
     </div>
   );

@@ -27,7 +27,7 @@ function DetailRoute() {
       });
   }, []);
 
-  const { cart, favorites } = useSelector((state) => state.cart);
+  const { cart} = useSelector((state) => state.cart);
 
 	const cartItem = cart?.find((item) => item.id === detail.id);
 
