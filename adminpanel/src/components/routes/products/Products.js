@@ -8,13 +8,13 @@ function Products() {
   let page = 1;
   let order='asc';
   let by='price';
-  let limit=10;0
+  let limit=10;
  const [error, setError]= useState('Loading Products');
 
   const [products, setProducts] = useState([]);
   useEffect(
     ()=>{
-      axios.get(`http://localhost:8081/pg/${page}/${price}/${order}/${limit}`).then(
+      axios.get(`http://localhost:8081/pg/${page}/${by}/${order}/${limit}`).then(
         res=>{
           setProducts(res.data.products);
         }
@@ -23,7 +23,7 @@ function Products() {
       })
     });
   return (
-    <div className='overview'>
+    <div className='products'>
       <div className="head">
         <h2>products
         </h2>
@@ -53,14 +53,18 @@ function Products() {
 
 
         </span>
+      <button>Add product</button>
         
       </div>
       <div className='products_bar'>
         <p className="id">Id</p>
        <p className="customer">name</p>
+       <p className="customer">image</p>
         <p className="count">Price</p> 
         <p className="total">Description</p>
         <p className="date">available</p>
+        <p></p>
+        <p></p>
         </div>
       <div className="contain">
           {
@@ -72,11 +76,7 @@ function Products() {
             })
             :
             <div style={{color:'green'}}>{error}</div>
-
           }
-
-
-
         </div>
 
       </div>
