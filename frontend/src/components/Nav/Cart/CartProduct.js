@@ -1,6 +1,6 @@
 import React from "react";
 // import CurrencyFormat from "react-currency-format";
-import { TbLetterX } from "react-icons/tb";
+import { GrClose} from "react-icons/gr";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -14,7 +14,7 @@ function CartProduct({ product }) {
 
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.cart);
-  // const { categories } = useSelector((state) => state.product);
+  const { categories } = useSelector((state) => state.product);
 
   const cartItem = cart?.find((item) => item.id === product.id);
   console.log(cartItem);
@@ -33,39 +33,29 @@ function CartProduct({ product }) {
   const addItems = () => {
     dispatch(addItemQuantity(product.id));
   };
+  
   return (
     <div className="cart-item">
       <div className="contents">
         <div className="imgs">
           <img className="imgs" src={cartItem.image} alt={cartItem.name} />
-
-          {/* <div className="detail">
+         </div>
+          <div className="detail">
             <span>
-              {/* {categories?.find((category) => category.categoryId === cartItem?.categoryId)?.categoryName} */}
-            
-		  <span>{cartItem.name}</span>
-
+              {cartItem.category}
+            </span>
+		       <span>{cartItem.name}</span>
         </div>
         <div className="button">
           <AiOutlineMinus className="minus" onClick={removeItems} />
-          <p className="count">{cartItem.quantity}</p>
+          <button className="count">{cartItem.quantity}</button>
           <AiOutlinePlus className="plus" onClick={addItems} />
         </div>
+        <h4>${cartItem.price * cartItem.quantity}</h4>
         <p onClick={removeItem} className="remove">
-          <TbLetterX />
+          <GrClose/>
         </p>
       </div>
-      <span className="amount">
-        {/* <CurrencyFormat value={cartItem?.price} displayType={"text"} thousandSeparator={true} prefix={"Ksh "} /> */}
-      </span>
-      <span className="total">
-        {/* <CurrencyFormat
-					value={cartItem?.price * cartItem?.quantity}
-					displayType={"text"}
-					thousandSeparator={true}
-					prefix={"Ksh "}
-				/> */}
-      </span>
     </div>
   );
 }
