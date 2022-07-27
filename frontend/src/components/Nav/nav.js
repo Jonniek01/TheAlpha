@@ -10,7 +10,7 @@ const Nav = () => {
     <div className="Nav">
       <div className="nav-top">
         <div className="logo">
-          <h2><Link to={`/`}>The Alpha</Link></h2>
+          <Link to={`/`} className='logo'>TheAlpha</Link>
         </div>
         <div className="search-bar">
           <button className="Categories">
@@ -19,36 +19,37 @@ const Nav = () => {
           </button>
           <input type="text" placeholder="search" />
           <button className="search-icon">
-            <BsSearch />
+            <BsSearch/>
           </button>
         </div>
         <div className="nav-icons">
-          <Link to={`/cart`}>
+          <div className="cart">
+          <Link to={`/cart`} className='cart-icon'>
           <FaShoppingCart/>
           </Link>
-          <Link to={`/login`}>
+        </div>
+          <div className="cart">
+          <Link to={`/login`} className='cart-icon'>
           <FaUserAlt />
           </Link>
+          </div>
+          
         </div>
       </div>
       <div className="nav-bottom">
         <button className="side-menu">ALL Departments</button>
         <ul>
-          <li>Home
-            <RiArrowDropDownLine />
-          </li>
-          <li>
+          <Link to={`/`} className='links'>Home
+          </Link>
+          <Link to={'/'}  className='links'>
             About Us
-            <RiArrowDropDownLine />
-          </li>
-          <li>
+          </Link>
+          <Link to={'/'}  className='links'>
             Blog
-            <RiArrowDropDownLine />
-          </li>
-          <li>
+          </Link>
+          <Link to={'/'}  className='links'>
             Contact
-            <RiArrowDropDownLine />
-          </li>
+          </Link>
         </ul>
       </div>
       <hr />

@@ -22,10 +22,12 @@ const Login = () => {
         e.preventDefault();
         axios.post('http://localhost:8082/login', values).then(
             res=>{
+                localStorage.setItem("currentUser",JSON.stringify(res.data.user))
+                localStorage.setItem("currentToken",JSON.stringify(res.data.token))
                 navigate('/cart') 
-                console.log(res)           
             } ).catch(err=>{
             console.log(err)
+            //can not access the server
         })
       }
 
