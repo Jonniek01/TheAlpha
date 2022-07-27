@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CartProduct from "./CartProduct";
 import Nav from "../nav";
+import { GrClose} from "react-icons/gr";
 import Footer from "../../Footer/footer";
 import "./cart.css";
 
@@ -13,7 +14,7 @@ function Cart() {
   const { cart } = useSelector((state) => state.cart);
   const [pop, setPop]=useState('pop_none')
   const url='http://localhost:8083/orders'
-  const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiIsImVtYWlsIjoiam9obkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQwOCQxd1Zjci5oRHBpODNmTWJWdHV1OVp1RXNnU2xMMUNvWkNLZlowdTliMVNTVE9HLk5QRjdUYSIsInBob25lIjoiKzI1NDExIiwibG9jYXRpb24iOiJLZW5vbCIsImlhdCI6MTY1ODg2Nzg4NCwiZXhwIjoxNjU4OTExMDg0fQ.yclYrgIilrgUsgvwFp0o-XbIxVZFVfIz3CrxJl14HgI'
+  const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiIsImVtYWlsIjoiam9obkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQwOCQxd1Zjci5oRHBpODNmTWJWdHV1OVp1RXNnU2xMMUNvWkNLZlowdTliMVNTVE9HLk5QRjdUYSIsInBob25lIjoiKzI1NDExIiwibG9jYXRpb24iOiJLZW5vbCIsImlhdCI6MTY1ODg3MDM2MSwiZXhwIjoxNjU4OTEzNTYxfQ.-YGPqBJxCjmFJxtFEc7aeHMJqlN-NX9FM7oE_8_Xa_M'
   const user={
     "id":8,
     "name":"John",
@@ -25,7 +26,6 @@ function Cart() {
   // const user=undefined
   const order={
     "customer_id": user.id,
-    "customer_name":user.name,
     "items": JSON.stringify(cart),
     "items_count": cart.length,
     "total": cart?.reduce((acc, item) => acc + item.price * item.quantity, 0)
@@ -33,14 +33,17 @@ function Cart() {
   }
   const config ={  
     headers: {
-    'Content-Type': 'application/json',
-    'Authorization': token
+    Authorization: token
 }}
   const [message, setMessage] = useState('')
 
   const handleOrder=()=>{
     setMessage('Placing your order, please wait');
-    axios.post(url, order, config).then((res)=>{
+    console.log(order)
+
+    axios.post(url, order, {headers: {
+      "Authorization":token
+    }}).then((res)=>{
       console.log(res)
 
     }
@@ -48,6 +51,7 @@ function Cart() {
     )
     .catch(
       (err)=>{
+        console.log(err);
         setMessage('An error occured, try again')
 
       }
@@ -103,6 +107,7 @@ function Cart() {
           <div>to login</div>
           :
           <div>
+            <button onClick={()=>{setPop('pop_none')}}><GrClose/></button>
             <p>{message}</p>
             <button onClick={()=>{
               handleOrder()

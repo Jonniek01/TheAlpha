@@ -1,31 +1,38 @@
 ##Get all orders
 GET http://localhost:8083/orders
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiIsImVtYWlsIjoiam9obkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQwOCQxd1Zjci5oRHBpODNmTWJWdHV1OVp1RXNnU2xMMUNvWkNLZlowdTliMVNTVE9HLk5QRjdUYSIsInBob25lIjoiKzI1NDExIiwibG9jYXRpb24iOiJLZW5vbCIsImlhdCI6MTY1ODg3MDM2MSwiZXhwIjoxNjU4OTEzNTYxfQ.-YGPqBJxCjmFJxtFEc7aeHMJqlN-NX9FM7oE_8_Xa_M
+
 ###
 
 ##Create order
 POST http://localhost:8083/orders
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiIsImVtYWlsIjoiam9obkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQwOCQxd1Zjci5oRHBpODNmTWJWdHV1OVp1RXNnU2xMMUNvWkNLZlowdTliMVNTVE9HLk5QRjdUYSIsInBob25lIjoiKzI1NDExIiwibG9jYXRpb24iOiJLZW5vbCIsImlhdCI6MTY1ODg3MDM2MSwiZXhwIjoxNjU4OTEzNTYxfQ.-YGPqBJxCjmFJxtFEc7aeHMJqlN-NX9FM7oE_8_Xa_M
 Content-Type: application/json
 
 {
-      "customer_id": 2,
-      "items": "[{},{},{},{}]",
-      "items_count": 4,
-      "total": 888.5
-
+  "customer_id": 8,
+      "items":"hhhhgyjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkhhhgyjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkh",
+  "items_count": 1,
+  "total": 40
 }
 ###
 
 ##Get order by  Id
-GET http://localhost:8083/orders/1
+GET http://localhost:8083/orders/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiIsImVtYWlsIjoiam9obkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQwOCQxd1Zjci5oRHBpODNmTWJWdHV1OVp1RXNnU2xMMUNvWkNLZlowdTliMVNTVE9HLk5QRjdUYSIsInBob25lIjoiKzI1NDExIiwibG9jYXRpb24iOiJLZW5vbCIsImlhdCI6MTY1ODg3MDM2MSwiZXhwIjoxNjU4OTEzNTYxfQ.-YGPqBJxCjmFJxtFEc7aeHMJqlN-NX9FM7oE_8_Xa_M
+
 ###
 
 ##Get order by  Uid
 GET http://localhost:8083/orders/user/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiIsImVtYWlsIjoiam9obkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQwOCQxd1Zjci5oRHBpODNmTWJWdHV1OVp1RXNnU2xMMUNvWkNLZlowdTliMVNTVE9HLk5QRjdUYSIsInBob25lIjoiKzI1NDExIiwibG9jYXRpb24iOiJLZW5vbCIsImlhdCI6MTY1ODg3MDM2MSwiZXhwIjoxNjU4OTEzNTYxfQ.-YGPqBJxCjmFJxtFEc7aeHMJqlN-NX9FM7oE_8_Xa_M
+
 ###
 
 ##Update order
 PATCH http://localhost:8083/orders/2002
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiIsImVtYWlsIjoiam9obkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQwOCQxd1Zjci5oRHBpODNmTWJWdHV1OVp1RXNnU2xMMUNvWkNLZlowdTliMVNTVE9HLk5QRjdUYSIsInBob25lIjoiKzI1NDExIiwibG9jYXRpb24iOiJLZW5vbCIsImlhdCI6MTY1ODg3MDM2MSwiZXhwIjoxNjU4OTEzNTYxfQ.-YGPqBJxCjmFJxtFEc7aeHMJqlN-NX9FM7oE_8_Xa_M
 
 {
       "items": "[{\"name\":\"john\"},{'name':'test'},{},{}]",

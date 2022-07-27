@@ -21,4 +21,3 @@ order_date DATETIME DEFAULT GETDATE(),
 cleared BIT DEFAULT 0
  )
 
-DROP TABLE orders
