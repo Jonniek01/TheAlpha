@@ -48,8 +48,6 @@ function DetailRoute() {
 	};
 
   return (
-    <div>
-      <Nav />
       <div className="detail">
         <div className="product">
           <div className="productImage">
@@ -78,8 +76,6 @@ function DetailRoute() {
           </div>
         </div>
       </div>
-      <Footer />
-    </div>
   );
 }
 
