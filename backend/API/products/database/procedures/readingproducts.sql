@@ -5,7 +5,7 @@ USE Products
 CREATE OR ALTER PROCEDURE 
 productspriceascending
  AS
- SELECT id, name, price, image, description, category 
+ SELECT id, name, price, image, description, category, available
      FROM products
      WHERE deleted=0
  ORDER BY price ASC;
@@ -18,7 +18,7 @@ EXEC productspriceascending
 CREATE OR ALTER PROCEDURE 
 productspricedescending
  AS
- SELECT id, name, price, image, description, category 
+ SELECT id, name, price, image, description, category ,available
      FROM products
          WHERE deleted=0
  ORDER BY price DESC;
@@ -30,7 +30,7 @@ EXEC productspricedescending
 CREATE OR ALTER PROCEDURE 
 productsnameascending
  AS
- SELECT id, name, price, image, description, category 
+ SELECT id, name, price, image, description, category , available
      FROM products
       WHERE deleted=0
  ORDER BY name ASC;
@@ -42,7 +42,7 @@ EXEC productsnameascending
 CREATE OR ALTER PROCEDURE 
 productsnamedescending
  AS
- SELECT id, name, price, image, description, category 
+ SELECT id, name, price, image, description, category, available
      FROM products
       WHERE deleted=0
  ORDER BY name DESC;
@@ -58,7 +58,7 @@ pgproductspriceascending
 @PageNumber INT,
 @RowsOfPage INT
  AS
- SELECT id, name, price, image, description, category 
+ SELECT id, name, price, image, description, category , available
      FROM products
       WHERE deleted=0
  ORDER BY price ASC
@@ -73,7 +73,7 @@ pgproductspricedescending
 @PageNumber INT,
 @RowsOfPage INT
  AS
- SELECT id, name, price, image, description, category 
+ SELECT id, name, price, image, description, category,available
      FROM products
       WHERE deleted=0
  ORDER BY price DESC
@@ -88,7 +88,7 @@ pgproductsnameascending
 @PageNumber INT,
 @RowsOfPage INT
  AS
- SELECT id, name, price, image, description, category 
+ SELECT id, name, price, image, description, category , available
      FROM products
       WHERE deleted=0
  ORDER BY name ASC
@@ -103,7 +103,7 @@ CREATE OR ALTER PROCEDURE
 @PageNumber INT,
 @RowsOfPage INT
  AS
- SELECT id, name, price, image, description, category 
+ SELECT id, name, price, image, description, category , available
      FROM products
       WHERE deleted=0
  ORDER BY name DESC
@@ -119,7 +119,7 @@ CREATE OR ALTER PROCEDURE
 catproductspriceascending
 @cat VARCHAR(50)
  AS
- SELECT id, name, price, image, description, category 
+ SELECT id, name, price, image, description, category ,available
      FROM products
 WHERE category=@cat
 AND deleted=0
@@ -132,7 +132,7 @@ CREATE OR ALTER PROCEDURE
 catproductspricedescending
 @cat VARCHAR(50)
  AS
- SELECT id, name, price, image, description, category 
+ SELECT id, name, price, image, description, category , available
      FROM products
 WHERE category=@cat AND deleted=0
  ORDER BY price DESC;
@@ -144,7 +144,7 @@ CREATE OR ALTER PROCEDURE
 catproductsnameascending
 @cat VARCHAR(50)
  AS
- SELECT id, name, price, image, description, category 
+ SELECT id, name, price, image, description, category, available
      FROM products
 WHERE category=@cat AND deleted=0
  ORDER BY name ASC;
@@ -156,7 +156,7 @@ CREATE OR ALTER PROCEDURE
 catproductsnamedescending
 @cat VARCHAR(50)
  AS
- SELECT id, name, price, image, description, category 
+ SELECT id, name, price, image, description, category, available
      FROM products
 WHERE category=@cat AND deleted=0
  ORDER BY name DESC;
@@ -172,7 +172,7 @@ pagcatproductspriceascending
 @PageNumber INT,
 @RowsOfPage INT
  AS
- SELECT id, name, price, image, description, category 
+ SELECT id, name, price, image, description, category, available
      FROM products
     WHERE category=@cat
      AND deleted=0
@@ -180,7 +180,7 @@ pagcatproductspriceascending
  OFFSET (@PageNumber-1)*@RowsOfPage ROWS
 FETCH NEXT @RowsOfPage ROWS ONLY
 
-EXEC  pagcatproductspriceascending 'outdoor', 1, 1
+EXEC  pagcatproductspriceascending 'outdoor', 1, 10
 
 -- 2.pagcatproductspricedescending
 CREATE OR ALTER PROCEDURE 
@@ -189,7 +189,7 @@ pagcatproductspricedescending
 @PageNumber INT,
 @RowsOfPage INT
  AS
- SELECT id, name, price, image, description, category 
+ SELECT id, name, price, image, description, category , available
      FROM products
     WHERE category=@cat
      AND deleted=0
@@ -207,7 +207,7 @@ pagcatproductsnameascending
 @PageNumber INT,
 @RowsOfPage INT
  AS
- SELECT id, name, price, image, description, category 
+ SELECT id, name, price, image, description, category , available
      FROM products
     WHERE category=@cat
      AND deleted=0
@@ -225,7 +225,7 @@ pagcatproductsnamedescending
 @PageNumber INT,
 @RowsOfPage INT
  AS
- SELECT id, name, price, image, description, category 
+ SELECT id, name, price, image, description, category, available
      FROM products
     WHERE category=@cat
      AND deleted=0
@@ -242,10 +242,24 @@ CREATE OR ALTER PROCEDURE
 productbyid
 @id VARCHAR(50)
  AS
- SELECT id, name, price, image, description, category 
+ SELECT id, name, price, image, description, category, available
      FROM products
      WHERE id=@id
      AND deleted=0
  ORDER BY price ASC;
 
 EXEC productbyid 2
+
+/*Searching products*/
+CREATE OR ALTER PROCEDURE 
+searchproduct
+@param VARCHAR(255)
+ AS
+ SELECT id, name, price, image, description, category, available
+     FROM products WHERE
+    CONTAINS (name, @param) 
+ ORDER BY price ASC;
+
+EXEC searchproduct 's'
+create fulltext catalog FullTextCatalog as default
+create fulltext index on dbo.products(name)  key index name

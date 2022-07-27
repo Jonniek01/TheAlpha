@@ -11,10 +11,6 @@
      deleted BIT DEFAULT 0
  )
 
-
-
-
-
 INSERT INTO products (name, price, image, description, category)
 VALUES('Ancle socks', 5120.20, 'http://image/url.com','beautiful socks','outdoor'),
 
