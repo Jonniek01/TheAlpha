@@ -1,32 +1,41 @@
-import React from 'react'
-import {RiArrowDropDownLine }from 'react-icons/ri'
-import { FaShoppingCart, FaUserAlt } from 'react-icons/fa'
-import '../../css/nav.css'
+import React from "react";
+import { RiArrowDropDownLine } from "react-icons/ri";
+import { FaShoppingCart, FaUserAlt } from "react-icons/fa";
+import { BsSearch } from "react-icons/bs";
+import "./nav.css";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <div className='Nav'>
-      <div className='nav-top'>
-        <div className='logo'>
-          <h2>The Alpha</h2>
+    <div className="Nav">
+      <div className="nav-top">
+        <div className="logo">
+          <h2><Link to={`/`}>The Alpha</Link></h2>
         </div>
-        <div className='search-bar'>
-          <button>
-            Categories
+        <div className="search-bar">
+          <button className="Categories">
+            All Categories
             <RiArrowDropDownLine />
           </button>
-          <input type='text' placeholder='search' />
+          <input type="text" placeholder="search" />
+          <button className="search-icon">
+            <BsSearch />
+          </button>
         </div>
-        <div className='nav-icons'>
-          <FaShoppingCart />
+        <div className="nav-icons">
+          <Link to={`/cart`}>
+          <FaShoppingCart/>
+          </Link>
+          <Link to={`/login`}>
           <FaUserAlt />
+          </Link>
         </div>
       </div>
-      <div className='nav-bottom'>
+      <div className="nav-bottom">
+        <button className="side-menu">ALL Departments</button>
         <ul>
-          <li>
-            Home
-<RiArrowDropDownLine />
+          <li>Home
+            <RiArrowDropDownLine />
           </li>
           <li>
             About Us
@@ -42,9 +51,9 @@ const Nav = () => {
           </li>
         </ul>
       </div>
-      <hr/>
+      <hr />
     </div>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;

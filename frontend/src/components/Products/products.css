@@ -1,0 +1,33 @@
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    justify-content: center;
+}
+.image img{
+    width: fit-content;
+    height: 300px;
+    border-radius: 5px;
+}
+.product-card{
+    display: flex;
+    align-items: center;
+    width: 300px;
+    flex-direction: column;
+    gap:0.5rem;
+    border-radius:5px;
+}
+.product-card:hover{
+    box-shadow: 2px 2px 2px 2px grey;
+}.content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.add-button{
+    display: none;
+    width: 150px;
+    background-color:blue;
+    color: white;
+    border-radius: 5px;
+}
