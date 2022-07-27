@@ -14,23 +14,16 @@ function Cart() {
   const { cart } = useSelector((state) => state.cart);
   const [pop, setPop]=useState('pop_none')
   const url='http://localhost:8083/orders'
-  const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiIsImVtYWlsIjoiam9obkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQwOCQxd1Zjci5oRHBpODNmTWJWdHV1OVp1RXNnU2xMMUNvWkNLZlowdTliMVNTVE9HLk5QRjdUYSIsInBob25lIjoiKzI1NDExIiwibG9jYXRpb24iOiJLZW5vbCIsImlhdCI6MTY1ODg3MDM2MSwiZXhwIjoxNjU4OTEzNTYxfQ.-YGPqBJxCjmFJxtFEc7aeHMJqlN-NX9FM7oE_8_Xa_M'
-  const user={
-    "id":8,
-    "name":"John",
-    "email":"john@gmail.com",
-    "phone":"+25411",
-    "location":"Kenol"
-}
+  const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiIsImVtYWlsIjoiam9obkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQwOCQxd1Zjci5oRHBpODNmTWJWdHV1OVp1RXNnU2xMMUNvWkNLZlowdTliMVNTVE9HLk5QRjdUYSIsInBob25lIjoiKzI1NDExIiwibG9jYXRpb24iOiJLZW5vbCIsImlhdCI6MTY1ODk0MTg1OSwiZXhwIjoxNjU4OTg1MDU5fQ.WKs0BfKOeDQSNl6523kaUsnXwoy9-R8J_2zNBAZjJeQ'
+//   const user={
+//     "id":8,
+//     "name":"John",
+//     "email":"john@gmail.com",
+//     "phone":"+25411",
+//     "location":"Kenol"
+// }
 
-  // const user=undefined
-  const order={
-    "customer_id": user.id,
-    "items": JSON.stringify(cart),
-    "items_count": cart.length,
-    "total": cart?.reduce((acc, item) => acc + item.price * item.quantity, 0)
-
-  }
+  const user=undefined
   const config ={  
     headers: {
     Authorization: token
@@ -38,13 +31,21 @@ function Cart() {
   const [message, setMessage] = useState('')
 
   const handleOrder=()=>{
-    setMessage('Placing your order, please wait');
-    console.log(order)
+    setMessage('adding.....');
 
-    axios.post(url, order, {headers: {
+    axios.post(url, {
+      "customer_id": user.id,
+      "customer_name": user.name,
+      "items": JSON.stringify(cart),
+      "items_count": cart.length,
+      "total": cart?.reduce((acc, item) => acc + item.price * item.quantity, 0)
+  
+    }, {headers: {
       "Authorization":token
     }}).then((res)=>{
       console.log(res)
+      setMessage('Your Order was added succesfuly');
+
 
     }
 
@@ -60,7 +61,6 @@ function Cart() {
   }
   return (
     <div>
-      <Nav />
       <div className="cart-container">
         <div className="content-cards">
           <div className="head">
@@ -104,7 +104,13 @@ function Cart() {
       <div className={pop}>
         {
           user===undefined?
-          <div>to login</div>
+          <div>
+
+            <p>Log in or sign up to place an order</p>
+            <Link to='/login'><button>lOGIN</button></Link>
+            <Link to={'/signup'}><button>Signup</button></Link>
+
+          </div>
           :
           <div>
             <button onClick={()=>{setPop('pop_none')}}><GrClose/></button>
@@ -120,7 +126,6 @@ function Cart() {
         <BsArrowLeft />
         Continue Shopping
       </Link>
-      <Footer />
     </div>
   );
 }
