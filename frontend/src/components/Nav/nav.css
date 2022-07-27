@@ -6,9 +6,12 @@
 }
 .nav-top{
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    gap:10px;
-}.logo h2{
+    /* gap:10px; */
+}.logo{
+    color: white;
+    text-decoration: none;
     font-size: 64px;
     font-style: italic;
     font-weight:64px;
@@ -18,19 +21,25 @@
 }
 .search-bar input{
     height: 3rem;
-    width: 30rem;
-    background-color: white;
-    border-left:none ;
-    border-right: none;
-}.Categories{
+    width: 35rem;
+    border:none;
+}
+.Categories{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 10rem;
     height: 3rem;
-    border-collapse: collapse;
+    border: none;
+    border-right:0.5px solid black ;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
+    font-weight: bold;
 }.search-icon{
     width: 2rem;
     height: 3rem;
+    font-weight: bolder;
+    border: none;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
@@ -44,20 +53,38 @@
 .nav-icons{
     display: flex;
     gap: 1.5rem;
-
+    text-decoration: none;
+}
+.cart{
+    display: flex;
+    width: 4rem;
+    height: 4rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: blue;
+}
+.cart-icon{
+    text-decoration: none;
+    color: white;
 }
 .nav-bottom{
     display: flex;
-    gap: 20rem;
+    gap: 35rem;
     align-items: center;
     padding:2rem;
     padding-bottom: 0px;
 }
 .nav-bottom ul{
     display: flex;
-    gap: 3rem;
+    gap: 5rem;
     list-style: none;
 }
-.nav-bottom ul li:hover{
-    border-bottom: solid white;
+.links{
+    text-decoration: none;
+    color: white;
+}
+.links:hover{
+    color:ghostwhite;
+    border-bottom: 1px solid white;
 }

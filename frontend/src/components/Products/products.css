@@ -1,14 +1,27 @@
+.products-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 4rem;
+}.filter{
+    display: flex;
+    gap: 1rem;
+}.search-bar{
+    width: 50rem;
+    border: none;
+    border-radius: 5px;
+}
 .products{
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 4rem;
     justify-content: center;
 }
-.image img{
-    width: fit-content;
-    height: 300px;
-    border-radius: 5px;
-}
+/* product card stylings */
+
+
 .product-card{
     display: flex;
     align-items: center;
@@ -16,18 +29,84 @@
     flex-direction: column;
     gap:0.5rem;
     border-radius:5px;
+    text-decoration: none;
+    color: white;
 }
 .product-card:hover{
+    color: white;
     box-shadow: 2px 2px 2px 2px grey;
-}.content{
+}
+.image img{
+    width: fit-content;
+    height: 300px;
+    border-radius: 5px;
+}
+.content{
     display: flex;
-    align-items: center;
     flex-direction: column;
 }
 .add-button{
-    display: none;
-    width: 150px;
-    background-color:blue;
-    color: white;
+    width: 200px;
+    background-color:rgb(204, 174, 96);
     border-radius: 5px;
 }
+/* products Deatails css */
+
+.detail{
+    align-items: center;
+}
+.productDetail{
+    display: flex;
+    padding: 4rem;
+    gap: 3rem;
+    height: 60%;
+    width: 60%;
+}
+.productImage img{ 
+ border-radius: 10px;
+ width: 400px;
+ height: 400px;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: large;
+}
+h1{
+    color: rgb(204, 174, 96);
+}
+.desc-buttons{
+    display: flex;
+   
+}
+.desc-details{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.button-1{
+    background-color: black;
+    color: white;
+    border: 1px solid  rgb(214, 183, 104) ;
+    width:15rem;
+    border-bottom: none;
+    height: 2rem;
+}
+.button-2{
+    background-color: black;
+    color: white;
+    border: 1px solid  rgb(214, 183, 104) ;
+    width:15rem;
+    height: 2rem;
+    border-top: none;
+}
+.add-buttons button{
+    background-color:rgb(214, 183, 104) ;
+    border-radius:5px;
+    width: 15rem;
+    border: none;
+    height: 2rem;
+}
+ 

@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./productDetail.css";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import Nav from "../Nav/nav";
-import Footer from "../Footer/footer";
+import "./products.css";
 import { IoCartOutline } from "react-icons/io5";
 import { useParams } from "react-router";
 import {
@@ -49,13 +47,13 @@ function DetailRoute() {
 
   return (
       <div className="detail">
-        <div className="product">
+        <div className="productDetail">
           <div className="productImage">
             <img src={detail.image} alt="product display" />
           </div>
-          <div className="detail">
+          <div className="title">
                 <h1>{detail.name}</h1>
-                <h3>{detail.category}</h3>
+                <h3>Category: {detail.category}</h3>
                 <div className="desc-buttons">
                   <button className="button-1">DESCRIPTION</button>
                   <button className="button-2">SIZE & QUANTITY</button>
@@ -70,7 +68,7 @@ function DetailRoute() {
                   <IoCartOutline/>
                   Add to cart
                 </button>
-                <button className="counter"></button>
+                {/* <button className="counter"></button> */}
               </div>
               </div>
           </div>
