@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Signup.css'
 
 const Signup = () => {
     const initialValues = {
@@ -31,23 +32,25 @@ const Signup = () => {
         })
       }
     return (
-        <div>
-            <form>
+        <div className='sign'>
+            <form className='form'>
                  <h1>Sign up</h1>
-
-                <div>
+                <div className='input'>
                     <input onChange={handleInputChange}  type='text' name='name' placeholder='Name'/>
                 </div>
-                <div>
+                <div className='input'>
                     <input onChange={handleInputChange} type='email' name='email' placeholder='Email' />
-                </div>                <div>
+                </div>      
+                <div className='input'>
                     <input onChange={handleInputChange} type='text' name='phone' placeholder='Phone number' />
-                </div>                <div>
+                </div > 
+                <div className='input'>
                     <input onChange={handleInputChange} type='text' name='location' placeholder='Location' />
-                </div>                <div>
+                </div> 
+                <div className='input'>
                     <input onChange={handleInputChange} type='password' name='password' placeholder='Password' />
                 </div>
-                <button onClick={(e)=>{handleSubmit(e)}}>SUBMIT</button>
+                <button className='submit' onClick={(e)=>{handleSubmit(e)}}>SUBMIT</button>
             </form>
         </div>
 

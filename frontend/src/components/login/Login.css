@@ -1,0 +1,26 @@
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem;
+    padding-bottom: 10rem;
+}
+.form{
+display: flex;
+flex-direction: column;
+gap: 5rem;
+}
+.input input{
+    width: 30rem;
+    height: 3rem;
+    border: none;
+    font-weight: bold;
+    font-size: 25px;
+}
+.submit{
+    background-color: blue;
+    width: 15rem;
+    height: 3rem;
+    color: white;
+    border-radius: 5px;
+}
