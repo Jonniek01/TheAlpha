@@ -67,40 +67,42 @@ function Cart() {
         <div className="content-cards">
           <div className="head">
             <h2 className="heading">Shopping Cart</h2>
-            <span className="count">
+            <h2 className="count">
               {cart
                 .map((item) => (item.quantity > 0 ? 1 : 0))
                 .reduce((acc, item) => acc + item, 0)}{" "}
               Items
-            </span>
+            </h2>
           </div>
-          <div className="item">
+          <div>
             {cart.map((item) => {
               return <CartProduct product={item} key={item.id} />;
             })}
           </div>
         </div>
-        <div id="summary" className="order">
+        <div className="order">
+          <div className="summary">
           <div className="items">
-            <span className="total">Total Number of Items:</span>
-            <span className="count">
-              {cart
-                .map((item) => item.quantity)
-                .reduce((acc, item) => acc + item, 0)}
-            </span>
+            <h3>Total Number of Items: {cart.map((item) => item.quantity).reduce((acc, item) => acc + item, 0)}
+            </h3>
           </div>
-
           <div className="Totals">
-            <span>
+            <h4>
               Total cost:{cart?.reduce((acc, item) => acc + item.price * item.quantity, 0)}
-
-            </span>
+            </h4>
           </div>
           <div className="checkout">
             <button onClick={()=>{setPop('pop_show')}} className="checkout">
               Make order
             </button>
           </div>
+          </div>
+          <div className="back-link">
+          <Link to="/" className="home-link">
+        <BsArrowLeft />
+        Click to CONTINUE SHOPPING!
+      </Link>
+         </div>
         </div>
       </div>
       <div className={pop}>
@@ -123,10 +125,7 @@ function Cart() {
           </div>
         }
       </div>
-      <Link to="/" className="home-link">
-        <BsArrowLeft />
-        CONTINUE SHOPPING
-      </Link>
+      
     </div>
   );
 }
