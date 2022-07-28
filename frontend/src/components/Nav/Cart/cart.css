@@ -1,4 +1,5 @@
 .cart-container{
+    padding: 3rem;
     display: flex;
     flex-direction: column;
 }
@@ -70,10 +71,27 @@
 }
 .pop_show{
     display: flex;
+    justify-content: center;
+    /* padding: 2rem; */
+    /* opacity: 0.5px; */
     position: fixed;
     top: 300px;
     left: 400px;
-    height: 300px;
-    width: 400px;
-    background-color: #CFEF66;
+    height: 600px;
+    width: 800px;
+    background-color:black;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px 0px white;
+}
+.Coder-message{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.Corder,.B-login ,.B-signup{
+    background-color: blue;
+    width: 15rem;
+    height: 3rem;
+    color: white;
+    border-radius: 5px;
 }

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from 'axios'
-// import CurrencyFormat from "react-currency-format";
 import { BsArrowLeft } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -108,18 +107,21 @@ function Cart() {
       <div className={pop}>
         {
           user===null?
-          <div>
-
-            <p>Log in or sign up to place an order</p>
-            <Link to='/login'><button>lOGIN</button></Link>
-            <Link to={'/signup'}><button>Signup</button></Link>
+          <div className="Coder-message">
+            <h2>Oops!! You are not logged in</h2>
+            <h4>Log in or sign up to place an order</h4>
+            <Link to='/login'><button className="B-login">lOGIN</button></Link>
+            <Link to={'/signup'}><button className="B-signup">Signup</button></Link>
 
           </div>
           :
-          <div>
+          <div className="Coder-message">
             <button onClick={()=>{setPop('pop_none')}}><GrClose/></button>
-            <p>{message}</p>
-            <button onClick={()=>{
+            <h3>Thanks for shopping with us!</h3>
+            <p>Your are about to make an order<br/>
+             of ...number.items costing ...order.cost</p>
+            <h2>{message}</h2>
+            <button className="Corder" onClick={()=>{
               handleOrder()
             }}>Confirm order</button>
           </div>
