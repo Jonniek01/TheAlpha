@@ -4,12 +4,12 @@ Content-Type: application/json
 
 {
     "name":"test3",
-    "email":"test3@gmail.com",
-    "password":"pass3"
+    "email":"test4@gmail.com",
+    "password":"pass3",
+    "admkey":"admina"
 }
 ###
 ## 2. Log In  logAdmin,
-
 POST http://localhost:8085/login
 Content-Type: application/json
 
