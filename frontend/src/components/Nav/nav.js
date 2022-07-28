@@ -1,4 +1,5 @@
-import React from "react";
+import React ,{useState}from "react";
+import { useSelector } from "react-redux";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaShoppingCart, FaUserAlt } from "react-icons/fa";
 import { BsSearch } from "react-icons/bs";
@@ -6,6 +7,8 @@ import "./nav.css";
 import { Link } from "react-router-dom";
 
 const Nav = () => {
+  const { cart } = useSelector((state) => state.cart);
+
   return (
     <div className="Nav">
       <div className="nav-top">
@@ -27,6 +30,10 @@ const Nav = () => {
           <Link to={`/cart`} className='cart-icon'>
           <FaShoppingCart/>
           </Link>
+          <h5>{cart
+                .map((item) => (item.quantity > 0 ? 1 : 0))
+                .reduce((acc, item) => acc + item, 0)}{" "}
+                </h5>
         </div>
           <div className="cart">
           <Link to={`/login`} className='cart-icon'>

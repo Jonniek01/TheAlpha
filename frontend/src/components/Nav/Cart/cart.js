@@ -5,10 +5,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CartProduct from "./CartProduct";
 import { useNavigate } from 'react-router-dom';
-
-import Nav from "../nav";
 import { GrClose} from "react-icons/gr";
-import Footer from "../../Footer/footer";
 import "./cart.css";
 
 function Cart() {
@@ -21,7 +18,9 @@ function Cart() {
   // console.log(JSON.parse(T))
 
   // const token="t"
-
+const total = () =>{
+  cart?.reduce((acc, item) => acc + item.price * item.quantity, 0)
+}
 
   const url='http://localhost:8083/orders'
   const [message, setMessage] = useState('')
