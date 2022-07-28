@@ -6,15 +6,20 @@ import RightBar from './components/rightbar/RightBar'
 import Content from './components/content/Content'
 import Login from './components/login/Login';
 import SignUp from './components/signup/SignUp';
+import Nav from './components/Nav/Nav';
 import { Route, Routes } from 'react-router-dom';
+// import { useEffect, useState } from 'react';
 function App() {
-  const logged=false;
-  if(logged){
+  const user=JSON.parse(localStorage.getItem('currentUser'))
+      console.log(user);
+
+  
+  if(user!==null){
     return (
       <div className="App">
         <div className='container'>
           <Sidebar/>
-          <Header/>
+          <Header name={user.username}/>
           <Stats />
           <RightBar />
           <Content/>
@@ -26,12 +31,15 @@ function App() {
   
   }
   return(
+    <div className='log_sign'>
+    <Nav/>
     <Routes>
     <Route path='/' element={<Login/>}></Route>
     <Route path='/login' element={<Login/>}></Route>
-    <Route path='/sign' element={<SignUp/>}></Route>
+    <Route path='/signup' element={<SignUp/>}></Route>
 
     </Routes>
+    </div>
     
   )
 
