@@ -59,3 +59,7 @@ justify-content: center;
     color: white;
     text-decoration: none;
 }
+.logout{
+    cursor: pointer;
+    font-weight: bold;
+}

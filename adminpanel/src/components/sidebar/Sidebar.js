@@ -26,7 +26,10 @@ function Sidebar() {
         
       </div>
       <div className="bottom">
-        <p className='link'><TbLogout/><span></span>Log out</p>
+        <p onClick={()=>{
+          localStorage.clear();
+          window.location.reload();
+          }} className='logout'><TbLogout/><span></span>Log out</p>
 
       </div>
     </div>
