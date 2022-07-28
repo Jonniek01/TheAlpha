@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './Login.css'
 
@@ -26,8 +25,20 @@ const Login = () => {
                 localStorage.setItem("currentToken",JSON.stringify(res.data.token))
                 window.location.reload();
             } ).catch(err=>{
-            console.log(err)
-            //can not access the server
+                if(err.response.data.status===404){
+                    alert("User not found");
+
+                }
+                else if(err.response.data.status===401){
+                    alert("Check you password and try again");
+
+                }
+            else{
+                alert("Server error, try again");
+                window.location.reload();
+
+
+            }
         })
       }
 

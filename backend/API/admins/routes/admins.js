@@ -1,6 +1,7 @@
 /* eslint-disable new-cap */
 const express = require('express');
 const adminAuth = require('../middlewares/adminAuth');
+const checkKey = require('../middlewares/checkKey');
 
 
 const {signUp,
@@ -13,7 +14,7 @@ const {signUp,
 const admins = express.Router();
 
 /* 1. CUSTOMERS SIGN UP*/
-admins.post('/signup',
+admins.post('/signup', checkKey,
     signUp);
 
 /*    id int NOT NULL PRIMARY KEY,
