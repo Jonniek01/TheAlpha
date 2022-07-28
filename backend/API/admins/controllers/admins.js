@@ -55,6 +55,7 @@ module.exports = {
                     status: 200,
                     success: true,
                     message: 'Logged in',
+                    user: user,
                     token,
                   });
               return;
