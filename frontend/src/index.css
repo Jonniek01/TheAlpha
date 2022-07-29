@@ -2,3 +2,9 @@
 background-color: black;
 color: white;
 }
+@media screen  and (max-width:648px){
+    .App{
+        display: flex;
+        flex-direction: column;
+    }
+}

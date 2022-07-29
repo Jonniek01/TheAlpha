@@ -12,9 +12,9 @@
 }.logo{
     color: white;
     text-decoration: none;
-    font-size: 64px;
+    font-size: 54px;
     font-style: italic;
-    font-weight:64px;
+    font-weight:54px;
 }
 .search-bar{
     display: flex
@@ -88,4 +88,18 @@
 .links:hover{
     color:ghostwhite;
     border-bottom: 1px solid white;
+}
+@media screen  and (max-width:648px){
+    .nav-bottom{
+        display: none;
+    }
+    .search-bar {
+        display: none;
+    }
+    .logo{
+        font-size: 20px;
+    }
+    .nav-icon{
+        gap:0.5rem;
+    }
 }
