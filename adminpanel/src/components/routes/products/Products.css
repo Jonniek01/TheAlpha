@@ -25,3 +25,26 @@
     overflow-y:scroll !important;
     
 }
+.over_none{
+    display: none;
+}
+.over_show{
+    position: fixed;
+    top: 10vh;
+    left: 35vw;
+    width: 30vw;
+    background-color: rgba(23, 23, 29, 0.877);
+}
+.close_div{
+    text-align: left;
+    width: 100%;
+    margin:5px;
+}
+.close_div button{
+    outline: none;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}

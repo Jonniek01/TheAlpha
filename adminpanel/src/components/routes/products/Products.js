@@ -3,13 +3,15 @@ import './Products.css'
 import Card from './card/Card'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import AddProduct from '../../Addproduct/Addproduct'
 
 function Products() {
   let page = 1;
   let order='asc';
   let by='price';
-  let limit=10;
+  let limit=50;
  const [error, setError]= useState('Loading Products');
+ const [over, setOver] = useState('over_none')
 
   const [products, setProducts] = useState([]);
   useEffect(
@@ -53,7 +55,7 @@ function Products() {
 
 
         </span>
-      <button>Add product</button>
+      <button onClick={()=>{setOver("over_show")}}>Add product</button>
         
       </div>
       <div className='products_bar'>
@@ -77,6 +79,10 @@ function Products() {
             :
             <div style={{color:'green'}}>{error}</div>
           }
+        </div>
+        <div className={over}>
+          <AddProduct setOver={setOver}/>
+
         </div>
 
       </div>

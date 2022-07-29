@@ -14,6 +14,8 @@ function Content() {
           <Route path='/products' element={<Products/>}></Route>
           <Route path='/customers' element={<Customers/>} ></Route>
           <Route path='/orders' element={<Orders/>}></Route>
+          <Route path='*' element={<Overview />} ></Route>
+
         </Routes>
 
     </div>
