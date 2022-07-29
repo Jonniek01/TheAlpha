@@ -45,10 +45,10 @@ PATCH http://localhost:8081/del/2
 ##/:post
 ## CREATING PRODUCT
 POST http://localhost:8081/post
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QzIiwiZW1haWwiOiJ0ZXN0M0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCQ1azUzVlFPc1FEeng0VmFPNldhVXRlb0lHcGJxb1FjTVNwalpMWE1ibkpDSjZNZ1haLmQ5eSIsImlhdCI6MTY1ODgwMzUwNCwiZXhwIjoxNjU4ODQ2NzA0fQ.7cLlPmY2qjECiu0rzmDWYl3XeH922QjYPn-yUNOP7Vw
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QyIiwiZW1haWwiOiJ0ZXN0MkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCR0Ry5qMTdSeGRRS040R1hXVEZkajZ1U2NqbHJEeExGeXE0UVM3Ny9aWS55VDNQNmNvSHp4YSIsImlhdCI6MTY1OTAwMDc3OSwiZXhwIjoxNjU5MDQzOTc5fQ.jR70-2c-twOL3Ctj771Hkekf4bUB96CSDKzFBQhsqrE
 Content-Type: application/json
 
-{ "id" :16,
+{ 
     "name":"Tshirt",
     "description" : "CHAMPION BASIC JERSEY TEE IN ORIGINAL NAVY",
     "image": " https://cdn.shopify.com/s/files/1/0186/1574/products/KN021051-BL47_2000x.jpg?v=1611104928",

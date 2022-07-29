@@ -6,15 +6,18 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QyIiwi
 
 ##Create order
 POST http://localhost:8083/orders
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QyIiwiZW1haWwiOiJ0ZXN0MkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCR0Ry5qMTdSeGRRS040R1hXVEZkajZ1U2NqbHJEeExGeXE0UVM3Ny9aWS55VDNQNmNvSHp4YSIsImlhdCI6MTY1ODg5NTEwOCwiZXhwIjoxNjU4OTM4MzA4fQ.C4yZ_-Qu7PdkkXlauTEilYQeyfj0Rw79qTZ5OOwClWY
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QyIiwiZW1haWwiOiJ0ZXN0MkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCR0Ry5qMTdSeGRRS040R1hXVEZkajZ1U2NqbHJEeExGeXE0UVM3Ny9aWS55VDNQNmNvSHp4YSIsImlhdCI6MTY1OTA2MzUyMCwiZXhwIjoxNjU5MTA2NzIwfQ.4goYIZUayuQjXiC_OJ192SNXehTX-v95usMimPnr9Sg
 Content-Type: application/json
 
 {
       "customer_id": 444,
-      "customer_name":"Success John",
+      "customer_name":"John",
+      "email":"jontejonhn@gmail.com",
       "items": "[{},{},{},kkjjjjjjjjjjdfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffjjjjjjjjpjiffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk{}]",
       "items_count": 4,
       "total": 888.5
+}
+###
 
 ##Get order by  Id
 GET http://localhost:8083/orders/2

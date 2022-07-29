@@ -1,6 +1,7 @@
 /* eslint-disable new-cap */
 const express = require('express');
 const customerAuth = require('../middlewares/customerAuth');
+const mailHandler = require('../middlewares/mailhandler');
 const adminAuth = require('../middlewares/adminAuth');
 
 const {getOrders,
@@ -20,7 +21,7 @@ orders.get('/', adminAuth,
     getOrders);
 
 /* CREATE order*/
-orders.post('/', customerAuth,
+orders.post('/', customerAuth, mailHandler,
     createOrder);
 /* GET ORDER BY ID*/
 orders.get('/:id', customerAuth,
