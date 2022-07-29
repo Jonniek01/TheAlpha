@@ -8,12 +8,8 @@ import Login from './components/login/Login';
 import SignUp from './components/signup/SignUp';
 import Nav from './components/Nav/Nav';
 import { Route, Routes } from 'react-router-dom';
-// import { useEffect, useState } from 'react';
 function App() {
   const user=JSON.parse(localStorage.getItem('currentUser'))
-      console.log(user);
-
-  
   if(user!==null){
     return (
       <div className="App">
@@ -37,6 +33,8 @@ function App() {
     <Route path='/' element={<Login/>}></Route>
     <Route path='/login' element={<Login/>}></Route>
     <Route path='/signup' element={<SignUp/>}></Route>
+    <Route path='*' element={<Login/>}></Route>
+
 
     </Routes>
     </div>
